@@ -1,11 +1,11 @@
 Package: jakR
 Type: Package
-Title: Miscellaneous R functions I use
+Title: jakR Miscellaneous Scripts
 Version: 0.1.1
 Author: Jeff Kimbrel
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Date: 2017-12-20
+Maintainer: Jeff Kimbrel <jakpot@gmail.com>
+Description: A collection of R functions and objects that I use regularly. These are mostly ggplot2 and phyloseq related, but I plan to add other goodies that I have lying around as well.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
