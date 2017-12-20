@@ -2,7 +2,6 @@
 #'
 #' Takes a `phyloseq` object with samples grouped in the sample data, calculates all pairwise beta-diversity metrics, and plots the distances in facets.
 #' @export
-#' @examples
 
 plotDistances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", d = "SampleType") {
 
