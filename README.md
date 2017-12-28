@@ -1,0 +1,2 @@
+# jakR
+Miscellaneous R Functions
