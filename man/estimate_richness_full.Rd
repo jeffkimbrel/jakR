@@ -7,5 +7,6 @@
 estimate_richness_full(phyloObject, runPD = FALSE)
 }
 \description{
-An extension of the phyloseq `estimate_richness` function to include Faith's PD and Shannon's Evenness
+An extension of the phyloseq `estimate_richness` function to include Shannon's Evenness and Faith's PD (with runPD = TRUE). It also combines the normal estimate_richness output with the sample data dataframe.
+Running Faith's PD can add a significant amount of time if the tree is large. Faith's PD also requires a rooted tree. If the phyloseq object tree is not rooted, then this function loads the phytools package and does midpoint.root().
 }
