@@ -5,7 +5,7 @@
 \title{Boxplot of Beta-diversity Distances}
 \usage{
 plotDistances(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID",
-  d = "SampleType")
+  d = "SampleType", plot = TRUE)
 }
 \description{
 Takes a `phyloseq` object with samples grouped in the sample data, calculates all pairwise beta-diversity metrics, and plots the distances in facets.

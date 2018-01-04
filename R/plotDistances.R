@@ -3,7 +3,7 @@
 #' Takes a `phyloseq` object with samples grouped in the sample data, calculates all pairwise beta-diversity metrics, and plots the distances in facets.
 #' @export
 
-plotDistances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", d = "SampleType") {
+plotDistances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", d = "SampleType", plot = TRUE) {
 
   require("phyloseq")
   require("dplyr")
@@ -17,7 +17,7 @@ plotDistances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", d
   # remove self-comparisons
   wu.m = wu.m %>%
     filter(as.character(Var1) != as.character(Var2)) %>%
-    mutate_if(is.factor,as.character)
+    mutate_if(is.factor, as.character)
 
   # get sample data (S4 error OK and expected)
   sd = sample_data(p) %>%
@@ -32,7 +32,7 @@ plotDistances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", d
   wu.sd = left_join(wu.sd, sd, by = "Var2")
 
   # plot
-  ggplot(wu.sd, aes(x = Type2, y = value)) +
+  p = ggplot(wu.sd, aes(x = Type2, y = value)) +
     theme_bw() +
     geom_point() +
     geom_boxplot(aes(color = ifelse(Type1 == Type2, "red", "black"))) +
@@ -40,4 +40,11 @@ plotDistances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", d
     facet_wrap(~ Type1, scales = "free_x") +
     theme(axis.text.x=element_text(angle = 90, hjust = 1, vjust = 0.5)) +
     ggtitle(paste0("Distance Metric = ", m))
+
+  # return
+  if (plot == TRUE) {
+    return(p)
+  } else {
+    return(wu.sd)
+  }
 }
