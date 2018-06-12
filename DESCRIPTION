@@ -1,12 +1,14 @@
 Package: jakR
 Type: Package
 Title: jakR Miscellaneous Scripts
-Version: 0.1.4
+Version: 0.2.5
 Author: Jeff Kimbrel
-Date: 2017-12-20
+Date: 2018-06-12
 Maintainer: Jeff Kimbrel <jakpot@gmail.com>
 Description: A collection of R functions and objects that I use regularly. These are mostly ggplot2 and phyloseq related, but I plan to add other goodies that I have lying around as well.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000
+Imports:
+    tidyverse

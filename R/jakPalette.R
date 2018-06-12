@@ -5,4 +5,4 @@
 #' @examples
 #' jakPalette(n)
 
-jakPalette = colorRampPalette(c("#181f3b", "#2f4d6d", "#feda5c", "#c85445", "#bd8e81"))
+jakPalette = colorRampPalette(c("#404530", "#738427", "#d1b385", "#427fc3", "#73cbf6"))
