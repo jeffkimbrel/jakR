@@ -16,7 +16,7 @@ getSig = function(group = "group", s = sigtab, phylo = phyloTemp) {
     filter(group %in% groupSig$COMP | group %in% groupSig$REF)
 
   df.SE = summarySE(data = ps.melt, measurevar = "Abundance", groupvar = c("group", "OTU"))
-  dodge <- position_dodge(width = 0.8)
+  dodge <- position_dodge(width = 0.95)
 
   # plot = ggplot(df.SE, aes(x = group, y = mean)) +
   #   jak_theme() +

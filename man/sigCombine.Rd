@@ -5,7 +5,7 @@
 \title{Combine DESeq sigtab contrasts}
 \usage{
 sigCombine(group = "group", reference = reference,
-  comparison = comparison, sigtab)
+  comparison = comparison, sigtab, runBH = TRUE)
 }
 \description{
 Combine DESeq sigtab contrasts
