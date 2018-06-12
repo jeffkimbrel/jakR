@@ -17,6 +17,7 @@ sigCombine = function(group = "group", reference = reference, comparison = compa
   }
 
   sigtab$negLogPval = -log10(sigtab$padj)
+  sigtab = sigtab[rev(order(sigtab$padj)),]
   return(sigtab)
 
 }
