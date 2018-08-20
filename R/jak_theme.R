@@ -5,8 +5,6 @@
 
 jak_theme <- function(base_size = 10, base_family = "", keySize = 0.3){
 
-  require("ggplot2")
-
   theme_bw(base_size = base_size, base_family = base_family) %+replace%
     theme(
       panel.grid.minor = element_blank(),
