@@ -1,7 +1,5 @@
-#' Alpha-Diversity Measures
+#' Calculate Total and Pairwise Adonis Values
 #'
-#' An extension of the phyloseq `estimate_richness` function to include Shannon's Evenness and Faith's PD (with runPD = TRUE). It also combines the normal estimate_richness output with the sample data dataframe.
-#' Running Faith's PD can add a significant amount of time if the tree is large. Faith's PD also requires a rooted tree. If the phyloseq object tree is not rooted, then this function loads the phytools package and does midpoint.root().
 #' @export
 #' @param x A dataframe of values with samples in columns, and observations in rows
 #' @param factors A dataframe with samples to be compared as rownames, and the groupings as column 1. It is easy to get this with a "select()" statement.
