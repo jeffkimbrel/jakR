@@ -5,13 +5,14 @@
 #' @param level Taxonomic level to use
 #' @param min Number of taxa to show, in addition to "_Other"
 #' @param xAxis Variable for the x axis
+#' @param otherColor Color (rgb) to assign to the "_Other" grouping
 
-phyloOther = function(p, level = "family", min = 10, xAxis = "SAMPLE") {
+phyloOther = function(p, level = "family", min = 10, xAxis = "SAMPLE", otherColor = "#BBBBBB") {
 
   require("tidyverse")
   require("RColorBrewer")
 
-  pal = c("#BBBBBB", brewer.pal(9, "Set1"))
+  pal = c(otherColor, brewer.pal(9, "Set1"))
 
   palette = colorRampPalette(pal)
 

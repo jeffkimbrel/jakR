@@ -4,7 +4,8 @@
 \alias{phyloOther}
 \title{Combine low-abundant taxa into a single category}
 \usage{
-phyloOther(p, level = "family", min = 10, xAxis = "SAMPLE")
+phyloOther(p, level = "family", min = 10, xAxis = "SAMPLE",
+  otherColor = "#BBBBBB")
 }
 \arguments{
 \item{p}{A phyloseq object}
@@ -14,6 +15,8 @@ phyloOther(p, level = "family", min = 10, xAxis = "SAMPLE")
 \item{min}{Number of taxa to show, in addition to "_Other"}
 
 \item{xAxis}{Variable for the x axis}
+
+\item{otherColor}{Color (rgb) to assign to the "_Other" grouping}
 }
 \description{
 Combine low-abundant taxa into a single category
