@@ -39,7 +39,9 @@ plotDistances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", d
     scale_color_identity() +
     facet_wrap(~ Type1, scales = "free_x") +
     theme(axis.text.x=element_text(angle = 90, hjust = 1, vjust = 0.5)) +
-    ggtitle(paste0("Distance Metric = ", m))
+    ggtitle(paste0("Distance Metric = ", m)) +
+    ylab(m) +
+    xlab(d)
 
   # return
   if (plot == TRUE) {

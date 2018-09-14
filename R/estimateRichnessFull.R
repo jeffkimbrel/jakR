@@ -20,6 +20,12 @@ estimate_richness_full = function(phyloObject, runPD = FALSE) {
 
   rich = left_join(rich, sampleData, by = "SAMPLE")
 
+  depth = as.data.frame(sample_sums(phyloObject))
+  colnames(depth) = "READS"
+  depth$SAMPLE = rownames(depth)
+
+  rich = left_join(rich, depth, by = "SAMPLE")
+
   # PD
   if (runPD == TRUE) {
 
