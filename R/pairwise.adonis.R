@@ -11,6 +11,7 @@
 pairwise.adonis <- function(x, factors, sim.method = 'bray', p.adjust.m = 'BH', perm = 999){
 
   library("vegan")
+  factors = data.frame(factors)
   colnames(factors) = "GROUP"
   factors$SAMPLE = rownames(factors)
 
