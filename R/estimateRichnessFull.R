@@ -11,20 +11,22 @@ estimate_richness_full = function(phyloObject, runPD = FALSE) {
 
   phyloObject = filter_taxa(phyloObject, function(x) sum(x >= 1) >= (1), TRUE)
 
-  sampleData = as.data.frame(sample_data(phyloObject))
+  sampleData = data.frame(sample_data(phyloObject))
 
   rich = estimate_richness(phyloObject)
   rich$ShannonEvenness = rich$Shannon / log(rich$Observed)
   row.names(rich) = gsub("\\.", "-", row.names(rich))
   rich$SAMPLE = as.factor(row.names(rich))
 
-  rich = left_join(rich, sampleData, by = "SAMPLE")
+  rich = merge(sampleData, rich)
+  rownames(rich) = rich$SAMPLE
 
   depth = as.data.frame(sample_sums(phyloObject))
-  colnames(depth) = "READS"
   depth$SAMPLE = rownames(depth)
+  colnames(depth) = c("SAMPLE_SUMS", "SAMPLE")
 
-  rich = left_join(rich, depth, by = "SAMPLE")
+  rich = merge(rich, depth)
+  rownames(rich) = rich$SAMPLE
 
   # PD
   if (runPD == TRUE) {
