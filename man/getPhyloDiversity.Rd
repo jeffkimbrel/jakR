@@ -4,7 +4,7 @@
 \alias{getPhyloDiversity}
 \title{Phylogenetic Diversity Measures}
 \usage{
-getPhyloDiversity(p, runs = 999)
+getPhyloDiversity(p, runs = 999, null.model = "frequency")
 }
 \description{
 Phylogenetic Diversity Measures
