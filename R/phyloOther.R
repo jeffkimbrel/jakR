@@ -5,16 +5,10 @@
 #' @param level Taxonomic level to use
 #' @param min Number of taxa to show, in addition to "_Other"
 #' @param xAxis Variable for the x axis
-#' @param otherColor Color (rgb) to assign to the "_Other" grouping
 
-phyloOther = function(p, level = "family", min = 10, xAxis = "SAMPLE", otherColor = "#BBBBBB") {
+phyloOther = function(p, level = "family", min = 10, xAxis = "SAMPLE") {
 
   require("tidyverse")
-  require("RColorBrewer")
-
-  pal = c(otherColor, brewer.pal(9, "Set1"))
-
-  palette = colorRampPalette(pal)
 
   if (min < 1) {
     min = 1
@@ -45,8 +39,7 @@ phyloOther = function(p, level = "family", min = 10, xAxis = "SAMPLE", otherColo
 
   levelUpper = toupper(level)
 
-  plot = plot_bar(phylo, fill = level, x = xAxis) +
-    scale_fill_manual(values = palette(ntaxa(phylo)))
+  plot = plot_bar(phylo, fill = level, x = xAxis)
 
   l = list("phylo" = phylo, "plot" = plot)
   return(l)
