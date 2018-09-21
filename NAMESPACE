@@ -3,6 +3,7 @@
 export(cbPalette)
 export(getAlphaDiversity)
 export(getPhyloDiversity)
+export(getPhyloPalette)
 export(getSig)
 export(jakPalette)
 export(jak_theme)
