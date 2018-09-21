@@ -14,7 +14,7 @@ showColorPalette = function(pal) {
   df = df  %>%
     arrange(desc(TAXA))
 
-  ggplot(df, aes(x = TAXA, y = VALUE)) +
+  p = ggplot(df, aes(x = TAXA, y = VALUE)) +
     jak_theme() +
     theme(panel.grid.minor = element_blank(),
           panel.grid.major = element_blank(),
@@ -26,5 +26,6 @@ showColorPalette = function(pal) {
           axis.text.y      = element_blank()) +
     geom_col(aes(fill = COLOR)) +
     scale_fill_identity() +
-    facet_wrap(~TAXA, scales = "free_x")
+    facet_wrap( ~ TAXA, scales = "free_x")
+  return(p)
 }
