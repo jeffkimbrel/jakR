@@ -1,7 +1,7 @@
 #' Calculate Error Bars on a Dataframe
 #'
-#'Code borrowed from Winston Chang
-#'http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/
+#' Code borrowed from Winston Chang
+#' http://www.cookbook-r.com/Graphs/Plotting_means_and_error_bars_(ggplot2)/
 #'
 #'
 #'

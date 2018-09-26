@@ -1,6 +1,13 @@
 #' Boxplot of Beta-diversity Distances
 #'
 #' Takes a `phyloseq` object with samples grouped in the sample data, calculates all pairwise beta-diversity metrics, and plots the distances in facets.
+#'
+#' @param p A phyloseq object
+#' @param m Distance metric
+#' @param s Column name with sample IDs
+#' @param d Grouping for comparisons
+#' @param plot Set to true to include a boxplot of the distances
+#'
 #' @export
 
 plotDistances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", d = "SampleType", plot = TRUE) {

@@ -7,6 +7,17 @@
 permanova(phyloObject, group = "TYPE", metric = "jsd",
   palettePick = FALSE, ordPoints = "none")
 }
+\arguments{
+\item{phyloObject}{A phyloseq object}
+
+\item{group}{A column name from the phyloseq object sample data to group samples for comparison}
+
+\item{metric}{The distance metric to use}
+
+\item{palettePick}{A palette object if you don't want to use the default}
+
+\item{ordPoints}{X,Y points to use. If none given, then an NMDS will be run}
+}
 \description{
 Permanova (adonis) and visualization
 }

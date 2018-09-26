@@ -1,5 +1,9 @@
 #' Phylogenetic Diversity Measures
 #'
+#' @param p A phyloseq object
+#' @param runs Number of bootstraps to run
+#' @param null.model The null.model for the SES calculations
+#'
 #' @export
 
 getPhyloDiversity = function(p, runs = 999, null.model = "frequency") {

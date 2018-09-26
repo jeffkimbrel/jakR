@@ -10,5 +10,5 @@ cbPalette(n)
 This palette can be used all over
 }
 \examples{
-jakPalette(n)
+cbPalette(n)
 }

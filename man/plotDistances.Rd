@@ -7,6 +7,17 @@
 plotDistances(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID",
   d = "SampleType", plot = TRUE)
 }
+\arguments{
+\item{p}{A phyloseq object}
+
+\item{m}{Distance metric}
+
+\item{s}{Column name with sample IDs}
+
+\item{d}{Grouping for comparisons}
+
+\item{plot}{Set to true to include a boxplot of the distances}
+}
 \description{
 Takes a `phyloseq` object with samples grouped in the sample data, calculates all pairwise beta-diversity metrics, and plots the distances in facets.
 }

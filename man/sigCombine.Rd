@@ -7,6 +7,18 @@
 sigCombine(group = "group", reference = reference,
   comparison = comparison, sigtab, runBH = TRUE)
 }
+\arguments{
+\item{group}{Grouping used in the dds object}
+
+\item{reference}{The name of the reference group}
+
+\item{comparison}{The name of the comparison group}
+
+\item{sigtab}{The sigtab object}
+
+\item{runBH}{P-value corrections using BH}
+}
 \description{
-Combine DESeq sigtab contrasts
+This one is a little wonky, because the dds object needs to be already made
+and living in the environment. Oh, and it has to be named 'dds'.
 }

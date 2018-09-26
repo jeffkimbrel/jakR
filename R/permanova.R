@@ -1,5 +1,10 @@
 #' Permanova (adonis) and visualization
 #'
+#' @param phyloObject A phyloseq object
+#' @param group A column name from the phyloseq object sample data to group samples for comparison
+#' @param metric The distance metric to use
+#' @param palettePick A palette object if you don't want to use the default
+#' @param ordPoints X,Y points to use. If none given, then an NMDS will be run
 #'
 #' @export
 
@@ -24,7 +29,6 @@ permanova = function(phyloObject, group = "TYPE", metric = "jsd", palettePick = 
   GROUP.p = adon.GROUP$aov.tab$`Pr(>F)`[1]
 
   ord = ordPoints
-
 
   if (ord[1] == "none") {
     ord = as.data.frame(ordinate(phyloObject, "NMDS", metric)$points)

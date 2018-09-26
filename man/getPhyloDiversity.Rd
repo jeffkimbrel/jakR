@@ -6,6 +6,13 @@
 \usage{
 getPhyloDiversity(p, runs = 999, null.model = "frequency")
 }
+\arguments{
+\item{p}{A phyloseq object}
+
+\item{runs}{Number of bootstraps to run}
+
+\item{null.model}{The null.model for the SES calculations}
+}
 \description{
 Phylogenetic Diversity Measures
 }
