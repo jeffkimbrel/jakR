@@ -1,11 +1,17 @@
 #' getSig
 #'
-#' Produces a df and plot of the significant taxa in a DESeq sigtab. Requires the phyloseq object and contrast field.
+#' Produces a df and plot of the significant taxa in a DESeq sigtab.
+#'
+#' @param group A contrast field used to make the dds object
+#' @param s A sigtab object
+#' @param phylo A phyloseq object
+#' @param minplot minimum baseMean to show up in the plot.
+#'
 #' @export
 
-getSig = function(group = "group", s = sigtab, phylo = phyloTemp) {
+getSig = function(group = "group", s = sigtab, phylo = phyloTemp, minPlot = 1) {
   groupSig = s %>%
-    select(KO, log2FoldChange, padj, REF, COMP) %>%
+    select(KO, log2FoldChange, padj, REF, COMP, baseMean) %>%
     filter(padj <= 0.05)
 
   ps.melt = psmelt(phylo)
@@ -26,10 +32,16 @@ getSig = function(group = "group", s = sigtab, phylo = phyloTemp) {
   #   facet_wrap(~OTU) +
   #   scale_fill_manual(values = pal(length(unique(ps.melt$group))))
 
-  plot = ggplot(df.SE, aes(x = OTU, y = mean)) +
+  groupSigBaseMean = groupSig %>%
+    filter(baseMean >= minPlot) %>%
+    select(KO) %>%
+    unique()
+
+  df.SE.plot = df.SE[df.SE$OTU %in% groupSigBaseMean$KO, ]
+
+  plot = ggplot(df.SE.plot, aes(x = OTU, y = mean)) +
     jak_theme() +
     geom_col(color = "black", position = dodge, aes(fill = group)) +
-    #geom_point(pch = 21, size = 3, position = dodge, aes(fill = group)) +
     geom_errorbar(position = dodge, aes(color = group, ymin = mean - sd, ymax = mean + sd)) +
     scale_fill_manual(values = jakPalette(length(unique(ps.melt$group)))) +
     scale_color_manual(values = jakPalette(length(unique(ps.melt$group))))

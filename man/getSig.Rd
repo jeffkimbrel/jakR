@@ -4,8 +4,17 @@
 \alias{getSig}
 \title{getSig}
 \usage{
-getSig(group = "group", s = sigtab, phylo = phyloTemp)
+getSig(group = "group", s = sigtab, phylo = phyloTemp, minPlot = 1)
+}
+\arguments{
+\item{group}{A contrast field used to make the dds object}
+
+\item{s}{A sigtab object}
+
+\item{phylo}{A phyloseq object}
+
+\item{minplot}{minimum baseMean to show up in the plot.}
 }
 \description{
-Produces a df and plot of the significant taxa in a DESeq sigtab. Requires the phyloseq object and contrast field.
+Produces a df and plot of the significant taxa in a DESeq sigtab.
 }

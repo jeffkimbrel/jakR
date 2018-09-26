@@ -4,7 +4,8 @@
 \alias{jak_theme_transparent}
 \title{JAK transparent ggplot theme}
 \usage{
-jak_theme_transparent(base_size = 10, base_family = "", keySize = 0.3)
+jak_theme_transparent(base_size = 10, base_family = "",
+  keySize = 0.3)
 }
 \description{
 Produces a transparent background and light colors for figures with a dark background.
