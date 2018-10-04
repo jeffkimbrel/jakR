@@ -1,8 +1,5 @@
 #' Combine DESeq sigtab contrasts
 #'
-#' This one is a little wonky, because the dds object needs to be already made
-#' and living in the environment. Oh, and it has to be named 'dds'.
-#'
 #' @param group Grouping used in the dds object
 #' @param reference The name of the reference group
 #' @param comparison The name of the comparison group
@@ -11,7 +8,7 @@
 #'
 #' @export
 
-sigCombine = function(group = "group", reference = reference, comparison = comparison, sigtab, runBH = TRUE) {
+sigCombine = function(group = "group", dds = dds, reference = reference, comparison = comparison, sigtab, runBH = TRUE) {
   df = as.data.frame(results(dds, cooksCutoff = FALSE, contrast = c(group, comparison, reference)))
   df$KO = rownames(df)
   df$REF = reference

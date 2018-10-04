@@ -14,8 +14,8 @@ getSig = function(group = "group", s = sigtab, phylo = phyloTemp, minPlot = 1) {
     select(KO, log2FoldChange, padj, REF, COMP, baseMean) %>%
     filter(padj <= 0.05)
 
-  ps.melt = psmelt(phylo)
-  ps.melt = dplyr::rename(ps.melt, group = "group")
+  ps.melt = as.tibble(psmelt(phylo))
+  ps.melt = dplyr::rename(ps.melt, "group" = group)
 
   ps.melt = ps.melt %>%
     filter(OTU %in% groupSig$KO) %>%

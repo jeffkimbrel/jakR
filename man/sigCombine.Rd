@@ -4,7 +4,7 @@
 \alias{sigCombine}
 \title{Combine DESeq sigtab contrasts}
 \usage{
-sigCombine(group = "group", reference = reference,
+sigCombine(group = "group", dds = dds, reference = reference,
   comparison = comparison, sigtab, runBH = TRUE)
 }
 \arguments{
@@ -19,6 +19,5 @@ sigCombine(group = "group", reference = reference,
 \item{runBH}{P-value corrections using BH}
 }
 \description{
-This one is a little wonky, because the dds object needs to be already made
-and living in the environment. Oh, and it has to be named 'dds'.
+Combine DESeq sigtab contrasts
 }
