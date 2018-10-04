@@ -9,10 +9,13 @@ showColorPalette = function(pal) {
   df = data.frame(pal)
   df$TAXA = as.factor(rownames(df))
   df$VAL = 1
-  colnames(df) = c("COLOR", "TAXA", "VALUE")
+  df$rank <- seq.int(nrow(df))
+
+  colnames(df) = c("COLOR", "TAXA", "VALUE", "RANK")
 
   df = df  %>%
-    arrange(desc(TAXA))
+    #arrange(desc(TAXA)) %>%
+    mutate(TAXA = reorder(TAXA, RANK))
 
   p = ggplot(df, aes(x = TAXA, y = VALUE)) +
     jak_theme() +
