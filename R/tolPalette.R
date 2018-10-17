@@ -15,6 +15,3 @@ tol$light        = colorRampPalette(c("#77aadd","#99ddff","#44bb99","#bbcc33","#
 tol$sunset       = colorRampPalette(c("#364b9a","#4a7bb7","#6ea6cd","#98cae1","#c2e4ef","#eaeccc","#feda8b","#fdb366","#f67e4b","#dd3d2d","#a50026"))
 tol$rainbow      = colorRampPalette(c("#d1bbd7","#ae76a3","#882e72","#1965b0","#5289c7","#7bafde","#4eb265","#90c987","#cae0ab","#f7f056","#f6c141","#f1932d","#e8601c","#dc050c"))
 tol$earth        = colorRampPalette(c("#5566aa","#117733","#44aa66","#55aa22","#668822","#99bb55","#558877","#88bbaa","#aaddcc","#44aa88","#ddcc66","#ffdd44","#ffee88","#bb0011"))
-
-
-showColorPalette(tol$earth(14))
