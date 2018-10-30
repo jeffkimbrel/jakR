@@ -7,7 +7,6 @@
 
 getPhyloPalette = function(p, level = "phylum", n = 10) {
 
-  require("RColorBrewer")
   require("phyloseq")
 
   df = psmelt(p)
@@ -21,14 +20,14 @@ getPhyloPalette = function(p, level = "phylum", n = 10) {
 
   # high
   highTaxaList = sort(df[1:n,]$TAXA) %>% droplevels()
-  highPalette = colorRampPalette(brewer.pal(9, "Set1"))
+  highPalette = tol$rainbow
   highTaxaPalette = highPalette(length(highTaxaList))
   names(highTaxaPalette) = highTaxaList
 
 
   # low
   lowTaxaList = sort(df[n+1:nrow(df),]$TAXA) %>% droplevels()
-  lowPalette = colorRampPalette(brewer.pal(8, "Pastel2"))
+  lowPalette = tol$pale
   lowTaxaPalette = lowPalette(length(lowTaxaList))
   names(lowTaxaPalette) = lowTaxaList
 
