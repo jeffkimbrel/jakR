@@ -16,7 +16,7 @@ jak_theme <- function(base_size = 10, base_family = "", keySize = 0.3){
       axis.text = element_text(color = "black"),
       axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
       strip.background = element_blank(),
-      strip.text.x = element_text(size = 10, margin = margin(1,0,1,0, "mm")),
+      strip.text.x = element_text(size = 10, margin = ggplot2::margin(1,0,1,0, "mm")),
       strip.text.y = element_text(angle = 0, size = 10)
     )
 }
