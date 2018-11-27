@@ -55,5 +55,6 @@ permanova = function(phyloObject, group = "TYPE", metric = "jsd", palettePick = 
   list("plot" = p1,
        "pval" = GROUP.p,
        "group" = group,
-       "metric" = metric)
+       "metric" = metric,
+       "df" = df)
 }
