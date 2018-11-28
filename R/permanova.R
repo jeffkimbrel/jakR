@@ -35,6 +35,8 @@ permanova = function(phyloObject, group = "TYPE", metric = "jsd", palettePick = 
   }
 
   df = cbind(ord, sd)
+  df$SAMPLE = rownames(df)
+
   df.x = aggregate(MDS1 ~ GROUP, data = df, mean)
   colnames(df.x) = c("GROUP", "Xmean")
 
