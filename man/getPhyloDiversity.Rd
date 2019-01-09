@@ -4,7 +4,8 @@
 \alias{getPhyloDiversity}
 \title{Phylogenetic Diversity Measures}
 \usage{
-getPhyloDiversity(p, runs = 999, null.model = "frequency")
+getPhyloDiversity(p, runs = 999, null.model = "frequency",
+  minOccurrence = 1)
 }
 \arguments{
 \item{p}{A phyloseq object}
@@ -12,6 +13,8 @@ getPhyloDiversity(p, runs = 999, null.model = "frequency")
 \item{runs}{Number of bootstraps to run}
 
 \item{null.model}{The null.model for the SES calculations}
+
+\item{minOccurrence}{Species must be found at least this many times in at least once sample to be kept}
 }
 \description{
 Phylogenetic Diversity Measures

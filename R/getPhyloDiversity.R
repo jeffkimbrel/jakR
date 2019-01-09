@@ -3,12 +3,14 @@
 #' @param p A phyloseq object
 #' @param runs Number of bootstraps to run
 #' @param null.model The null.model for the SES calculations
+#' @param minOccurrence Species must be found at least this many times in at least once sample to be kept
+
 #'
 #' @export
 
-getPhyloDiversity = function(p, runs = 999, null.model = "frequency") {
+getPhyloDiversity = function(p, runs = 999, null.model = "frequency", minOccurrence = 1) {
   require("picante")
-  p = filter_taxa(p, function(x) sum(x >= 1) >= 1, TRUE)
+  p = filter_taxa(p, function(x) sum(x >= minOccurrence) >= 1, TRUE)
 
   # make initial objects
   tree = phy_tree(p)
