@@ -3,8 +3,7 @@
 #' @param p A phyloseq object
 #' @param runs Number of bootstraps to run
 #' @param null.model The null.model for the SES calculations
-#' @param minOccurrence Species must be found at least this many times in at least once sample to be kept
-
+#' @param minOccurrence Species must be found at least this many times in at least one sample to be kept
 #'
 #' @export
 
