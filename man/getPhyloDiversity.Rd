@@ -14,7 +14,7 @@ getPhyloDiversity(p, runs = 999, null.model = "frequency",
 
 \item{null.model}{The null.model for the SES calculations}
 
-\item{minOccurrence}{Species must be found at least this many times in at least once sample to be kept}
+\item{minOccurrence}{Species must be found at least this many times in at least one sample to be kept}
 }
 \description{
 Phylogenetic Diversity Measures
