@@ -20,7 +20,7 @@ drep_extract = function(path) {
     select(genome, cluster)
   genomeInfo = left_join(genomeInfo, Wdb, by = "genome")
 
-  genomeInfo$genome = gsub(".fa", "", d$genome)
+  genomeInfo$genome = gsub(".fa", "", genomeInfo$genome)
 
   genomeInfo = suppressWarnings(genomeInfo %>%
     separate(cluster, into = c("cluster"), sep = "_") %>%
