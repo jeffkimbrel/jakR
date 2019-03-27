@@ -22,9 +22,9 @@ drep_extract = function(path) {
 
   genomeInfo$genome = gsub(".fa", "", genomeInfo$genome)
 
-  genomeInfo = suppressWarnings(genomeInfo %>%
-    separate(cluster, into = c("cluster"), sep = "_") %>%
-    separate(secondary_cluster, into = c("secondary_cluster"), sep = "_"))
+  #genomeInfo = suppressWarnings(genomeInfo %>%
+  #  separate(cluster, into = c("cluster"), sep = "_") %>%
+  #  separate(secondary_cluster, into = c("secondary_cluster"), sep = "_"))
 
   return(genomeInfo)
 }
