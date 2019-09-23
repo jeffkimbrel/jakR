@@ -8,7 +8,7 @@
 #'
 #' @export
 
-permanova = function(phyloObject, group = "TYPE", metric = "jsd", palettePick = FALSE, ordPoints = "none") {
+permanova = function(phyloObject, group = "TYPE", metric = "jsd", ordPoints = "none") {
 
   require("vegan")
 
@@ -16,13 +16,13 @@ permanova = function(phyloObject, group = "TYPE", metric = "jsd", palettePick = 
   sd = sd[group]
   colnames(sd) = "GROUP"
 
-  palette = ""
-  if (palettePick[1] == FALSE) {
-    colorCount = length(unique(sd$GROUP))
-    palette = getPalette(colorCount)
-  } else{
-    palette = palettePick
-  }
+  #palette = ""
+  #if (palettePick[1] == FALSE) {
+  #  colorCount = length(unique(sd$GROUP))
+  #  palette = getPalette(colorCount)
+  #} else{
+  #  palette = palettePick
+  #}
 
   distJSD = phyloseq::distance(phyloObject, metric)
   adon.GROUP = adonis(distJSD ~ GROUP, sd)
@@ -47,11 +47,11 @@ permanova = function(phyloObject, group = "TYPE", metric = "jsd", palettePick = 
   df = left_join(df, df.y, by = "GROUP")
 
   p1 = ggplot(df, aes(x = MDS1, y = MDS2)) +
+    jak_theme() +
     geom_segment(aes(x = Xmean, y = Ymean, xend = MDS1, yend = MDS2, color = GROUP)) +
     geom_point(pch = 21, color = "black", size = 3, aes(fill = GROUP)) +
-    scale_fill_manual(values = palette) +
-    scale_color_manual(values = palette) +
-    jak_theme() +
+    #scale_fill_manual(values = palette) +
+    #scale_color_manual(values = palette) +
     theme(legend.position = "bottom")
 
   list("plot" = p1,

@@ -5,7 +5,7 @@
 \title{Permanova (adonis) and visualization}
 \usage{
 permanova(phyloObject, group = "TYPE", metric = "jsd",
-  palettePick = FALSE, ordPoints = "none")
+  ordPoints = "none")
 }
 \arguments{
 \item{phyloObject}{A phyloseq object}
@@ -14,9 +14,9 @@ permanova(phyloObject, group = "TYPE", metric = "jsd",
 
 \item{metric}{The distance metric to use}
 
-\item{palettePick}{A palette object if you don't want to use the default}
-
 \item{ordPoints}{X,Y points to use. If none given, then an NMDS will be run}
+
+\item{palettePick}{A palette object if you don't want to use the default}
 }
 \description{
 Permanova (adonis) and visualization
