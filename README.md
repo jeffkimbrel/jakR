@@ -1,3 +1,5 @@
-# jakR
+To install:
 
-Miscellaneous R Functions
+```
+devtools::install_github("jeffkimbrel/jakR")
+```
