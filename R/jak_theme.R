@@ -7,6 +7,9 @@ jak_theme <- function(base_size = 10, base_family = "", keySize = 0.3){
 
   theme_bw(base_size = base_size, base_family = base_family) %+replace%
     theme(
+      legend.background = element_rect(fill = "transparent"),
+      legend.box.background = element_rect(fill = "transparent"),
+      plot.background = element_rect(fill = "transparent", color = "transparent"),
       panel.grid.minor = element_blank(),
       panel.background = element_rect(fill = NA, color = "black"),
       panel.border = element_rect(fill = NA, color = "black", size = 1),
@@ -16,7 +19,7 @@ jak_theme <- function(base_size = 10, base_family = "", keySize = 0.3){
       axis.text = element_text(color = "black"),
       axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
       strip.background = element_blank(),
-      strip.text.x = element_text(size = 10, margin = ggplot2::margin(1,0,1,0, "mm")),
-      strip.text.y = element_text(angle = 0, size = 10)
+      strip.text.x = element_text(size = 10, margin = ggplot2::margin(1,0,1,0, "mm"), hjust = 0),
+      strip.text.y = element_text(angle = 0, size = 10, hjust = 0)
     )
 }

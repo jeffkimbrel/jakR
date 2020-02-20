@@ -4,8 +4,7 @@
 \alias{getPhyloDiversity}
 \title{Phylogenetic Diversity Measures}
 \usage{
-getPhyloDiversity(p, runs = 999, null.model = "frequency",
-  minOccurrence = 1)
+getPhyloDiversity(p, runs = 999, null.model = "frequency", minOccurrence = 1)
 }
 \arguments{
 \item{p}{A phyloseq object}

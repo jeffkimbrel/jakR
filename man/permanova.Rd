@@ -4,8 +4,7 @@
 \alias{permanova}
 \title{Permanova (adonis) and visualization}
 \usage{
-permanova(phyloObject, group = "TYPE", metric = "jsd",
-  ordPoints = "none")
+permanova(phyloObject, group = "TYPE", metric = "jsd", ordPoints = "none")
 }
 \arguments{
 \item{phyloObject}{A phyloseq object}

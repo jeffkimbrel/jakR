@@ -4,8 +4,7 @@
 \alias{pairwiseAdonis}
 \title{Calculate Total and Pairwise Adonis Values}
 \usage{
-pairwiseAdonis(x, factors, sim.method = "bray", p.adjust.m = "BH",
-  perm = 999)
+pairwiseAdonis(x, factors, sim.method = "bray", p.adjust.m = "BH", perm = 999)
 }
 \arguments{
 \item{x}{A dataframe of values with samples in columns, and observations in rows}

@@ -4,8 +4,13 @@
 \alias{plotDistances}
 \title{Boxplot of Beta-diversity Distances}
 \usage{
-plotDistances(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID",
-  d = "SampleType", plot = TRUE)
+plotDistances(
+  p = GlobalPatterns,
+  m = "wunifrac",
+  s = "X.SampleID",
+  d = "SampleType",
+  plot = TRUE
+)
 }
 \arguments{
 \item{p}{A phyloseq object}

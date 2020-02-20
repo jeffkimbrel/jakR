@@ -4,8 +4,14 @@
 \alias{sigCombine}
 \title{Combine DESeq sigtab contrasts}
 \usage{
-sigCombine(group = "group", dds = dds, reference = reference,
-  comparison = comparison, sigtab, runBH = TRUE)
+sigCombine(
+  group = "group",
+  dds = dds,
+  reference = reference,
+  comparison = comparison,
+  sigtab,
+  runBH = TRUE
+)
 }
 \arguments{
 \item{group}{Grouping used in the dds object}

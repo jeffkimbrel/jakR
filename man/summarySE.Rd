@@ -4,8 +4,14 @@
 \alias{summarySE}
 \title{Calculate Error Bars on a Dataframe}
 \usage{
-summarySE(data = NULL, measurevar, groupvars = NULL, na.rm = FALSE,
-  conf.interval = 0.95, .drop = TRUE)
+summarySE(
+  data = NULL,
+  measurevar,
+  groupvars = NULL,
+  na.rm = FALSE,
+  conf.interval = 0.95,
+  .drop = TRUE
+)
 }
 \description{
 Code borrowed from Winston Chang
