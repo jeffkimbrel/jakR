@@ -4,7 +4,9 @@
 \name{tol}
 \alias{tol}
 \title{Paul Tol Color Schemes}
-\format{An object of class \code{list} of length 10.}
+\format{
+An object of class \code{list} of length 10.
+}
 \usage{
 tol
 }

@@ -4,7 +4,9 @@
 \name{colorbook}
 \alias{colorbook}
 \title{Color Book Color Schemes}
-\format{An object of class \code{list} of length 5.}
+\format{
+An object of class \code{list} of length 5.
+}
 \usage{
 colorbook
 }
