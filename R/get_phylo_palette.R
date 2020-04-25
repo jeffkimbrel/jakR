@@ -36,10 +36,10 @@ get_phylo_palette = function (p, n = 10) {
       mutate(TAXA = as.character(TAXA)) %>%
       pull(TAXA)
 
-    top_palette = sample(colorbook$helpcenter(length(top_taxa)))
+    top_palette = colorbook$helpcenter(length(top_taxa))
     names(top_palette) = top_taxa
 
-    bottom_palette = sample(colorbook$inslife(length(bottom_taxa)))
+    bottom_palette = sample(colorbook$inslife(length(bottom_taxa))) # these are randomly chosen, not in order
     names(bottom_palette) = bottom_taxa
 
     taxa_palette = c(top_palette, bottom_palette)
