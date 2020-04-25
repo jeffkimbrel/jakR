@@ -1,7 +1,7 @@
 Package: jakR
 Type: Package
 Title: jakR Miscellaneous Scripts
-Version: 0.6.8
+Version: 0.7.0
 Author: Jeff Kimbrel
 Date: 2018-06-12
 Maintainer: Jeff Kimbrel <jakpot@gmail.com>
