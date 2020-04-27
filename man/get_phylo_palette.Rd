@@ -4,12 +4,24 @@
 \alias{get_phylo_palette}
 \title{getPhyloPalette}
 \usage{
-get_phylo_palette(p, n = 10)
+get_phylo_palette(
+  p,
+  n = 10,
+  random_high = FALSE,
+  random_low = FALSE,
+  other_color = "#555555"
+)
 }
 \arguments{
 \item{p}{A Phyloseq object}
 
-\item{n}{Max number of taxa to be included in the "primary" palette, with the rest in a secondary, less dramatic palette.}
+\item{n}{Max number of taxa to be included in the "primary" palette, with the rest in a secondary, less dramatic palette}
+
+\item{random_high}{If TRUE, randomize the color palette. If FALSE, colors will be arranged from high to low taxa abundance}
+
+\item{random_low}{If TRUE, randomize the color palette. If FALSE, colors will be arranged from high to low taxa abundance}
+
+\item{other_color}{Color to use for the aggregated Other taxa}
 }
 \description{
 getPhyloPalette

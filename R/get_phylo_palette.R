@@ -2,9 +2,12 @@
 #'
 #' @export
 #' @param p A Phyloseq object
-#' @param n Max number of taxa to be included in the "primary" palette, with the rest in a secondary, less dramatic palette.
+#' @param n Max number of taxa to be included in the "primary" palette, with the rest in a secondary, less dramatic palette
+#' @param random_high If TRUE, randomize the color palette. If FALSE, colors will be arranged from high to low taxa abundance
+#' @param random_low If TRUE, randomize the color palette. If FALSE, colors will be arranged from high to low taxa abundance
+#' @param other_color Color to use for the aggregated Other taxa
 
-get_phylo_palette = function (p, n = 10) {
+get_phylo_palette = function (p, n = 10, random_high = FALSE, random_low = FALSE, other_color = "#555555") {
   require("phyloseq")
   require("tidyverse")
   require("speedyseq")
@@ -36,14 +39,22 @@ get_phylo_palette = function (p, n = 10) {
       mutate(TAXA = as.character(TAXA)) %>%
       pull(TAXA)
 
-    top_palette = colorbook$helpcenter(length(top_taxa))
+    if (random_high == FALSE) {
+      top_palette = colorbook$helpcenter(length(top_taxa))
+    } else {
+      top_palette = sample(colorbook$helpcenter(length(top_taxa)))
+    }
     names(top_palette) = top_taxa
 
-    bottom_palette = sample(colorbook$inslife(length(bottom_taxa))) # these are randomly chosen, not in order
+    if (random_low == FALSE) {
+      bottom_palette = colorbook$inslife(length(bottom_taxa))
+    } else {
+      bottom_palette = sample(colorbook$inslife(length(bottom_taxa)))
+    }
     names(bottom_palette) = bottom_taxa
 
     taxa_palette = c(top_palette, bottom_palette)
-    taxa_palette["Other"] = "#555555"
+    taxa_palette["Other"] = other_color
     taxa_palette["NA"] = "#000000"
 
     pal[[level]] = taxa_palette
