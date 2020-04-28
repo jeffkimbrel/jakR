@@ -7,15 +7,22 @@
 get_phylo_palette(
   p,
   n = 10,
+  palette_high = colorbook$helpcenter,
+  palette_low = colorbook$inslife,
   random_high = FALSE,
   random_low = FALSE,
-  other_color = "#555555"
+  other_color = "#555555",
+  OTU = F
 )
 }
 \arguments{
 \item{p}{A Phyloseq object}
 
 \item{n}{Max number of taxa to be included in the "primary" palette, with the rest in a secondary, less dramatic palette}
+
+\item{palette_high}{Expanding color palette for the high taxa}
+
+\item{palette_low}{Expanding color palette for the low taxa}
 
 \item{random_high}{If TRUE, randomize the color palette. If FALSE, colors will be arranged from high to low taxa abundance}
 
