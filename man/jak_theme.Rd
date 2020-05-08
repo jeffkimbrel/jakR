@@ -4,8 +4,28 @@
 \alias{jak_theme}
 \title{JAK ggplot theme}
 \usage{
-jak_theme(base_size = 10, base_family = "", keySize = 0.3)
+jak_theme(
+  base_size = 10,
+  base_color = "gray30",
+  grid_color = "gray80",
+  strip_size = 10,
+  legend_size = 10,
+  base_family = ""
+)
+}
+\arguments{
+\item{base_size}{Font size for most things}
+
+\item{base_color}{Color for most text and lines}
+
+\item{grid_color}{Color for grid lines}
+
+\item{strip_size}{Font size for facet strip titles}
+
+\item{legend_size}{Font size for legend}
+
+\item{base_family}{Font family}
 }
 \description{
-Used for figures with a white background.
+Modify theme of ggplots
 }

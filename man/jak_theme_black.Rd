@@ -2,10 +2,30 @@
 % Please edit documentation in R/jak_theme_black.R
 \name{jak_theme_black}
 \alias{jak_theme_black}
-\title{JAK black ggplot theme}
+\title{JAK ggplot theme}
 \usage{
-jak_theme_black(base_size = 10, base_family = "", keySize = 0.3)
+jak_theme_black(
+  base_size = 10,
+  base_color = "gray80",
+  grid_color = "gray30",
+  strip_size = 10,
+  legend_size = 10,
+  base_family = ""
+)
+}
+\arguments{
+\item{base_size}{Font size for most things}
+
+\item{base_color}{Color for most text and lines}
+
+\item{grid_color}{Color for grid lines}
+
+\item{strip_size}{Font size for facet strip titles}
+
+\item{legend_size}{Font size for legend}
+
+\item{base_family}{Font family}
 }
 \description{
-Produces a black background and light colors for figures with a dark background.
+Modify theme of ggplots
 }
