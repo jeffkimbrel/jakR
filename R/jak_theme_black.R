@@ -31,7 +31,7 @@ jak_theme_black = function(base_size = 10, base_color = "gray80", grid_color = "
                           vjust = 0.5,
                           angle = 0,
                           margin = ggplot2::margin(), debug = FALSE),
-      plot.background = element_rect(fill = "black", color = "black"),
+      plot.background = element_rect(fill = "transparent", color = "transparent"),
       panel.background = element_rect(fill = "transparent", color = base_color, size = 1),
       panel.grid.major = element_line(color = grid_color, size = 0.2),
       panel.grid.minor = element_line(color = "transparent"),
