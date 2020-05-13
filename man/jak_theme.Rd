@@ -5,18 +5,25 @@
 \title{JAK ggplot theme}
 \usage{
 jak_theme(
+  t = "light",
   base_size = 10,
   base_color = "gray30",
+  bg_color = "transparent",
   grid_color = "gray80",
   strip_size = 10,
+  strip_color = "transparent",
   legend_size = 10,
   base_family = ""
 )
 }
 \arguments{
+\item{t}{Themes}
+
 \item{base_size}{Font size for most things}
 
 \item{base_color}{Color for most text and lines}
+
+\item{bg_color}{background color}
 
 \item{grid_color}{Color for grid lines}
 

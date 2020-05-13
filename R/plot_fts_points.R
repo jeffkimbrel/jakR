@@ -7,7 +7,7 @@
 #' @export
 
 plot_fts_points = function(df, n = 10, s = c(), p = colorbook$modernUI(2)) {
-  taxa = get_intervals(df) %>%
+  taxa = jakR::get_fts_intervals(df) %>%
     pull(F) %>%
     unique()
   taxa = taxa[1:n]
@@ -22,8 +22,7 @@ plot_fts_points = function(df, n = 10, s = c(), p = colorbook$modernUI(2)) {
   B = df$a_fit %>%
     filter(F %in% taxa)
 
-  ggplot(A, aes(x = time, y = abundance, color = class)) +
-    jak_theme_black() +
+  gg = ggplot(A, aes(x = time, y = abundance, color = class)) +
     geom_boxplot(fill = NA, aes(group = paste(time, class))) +
     geom_line(data = B, size = 1, aes(x = T, y = FIT, color = GROUP)) +
     geom_line(data = B, aes(x = T, y = FIT + SE, color = GROUP), linetype = 3) +
@@ -32,4 +31,6 @@ plot_fts_points = function(df, n = 10, s = c(), p = colorbook$modernUI(2)) {
     scale_fill_manual(values = p) +
     scale_color_manual(values = p) +
     theme(legend.position = "bottom")
+
+  return(gg)
 }

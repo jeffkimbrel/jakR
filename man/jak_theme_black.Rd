@@ -9,6 +9,7 @@ jak_theme_black(
   base_color = "gray80",
   grid_color = "gray30",
   strip_size = 10,
+  strip_color = "transparent",
   legend_size = 10,
   base_family = ""
 )
