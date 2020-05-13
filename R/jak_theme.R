@@ -11,7 +11,18 @@
 #' @param bg_color background color
 #' @param t Themes
 
-jak_theme <- function(t = "light", base_size = 10, base_color = "gray30", bg_color = "transparent", grid_color = "gray80", strip_size = 10, strip_color = "transparent", legend_size = 10, base_family = "") {
+jak_theme <- function(t = "light",
+                      base_size = 10,
+                      base_color = "gray30",
+                      bg_color = "transparent",
+                      grid_color = "gray80",
+                      strip_size = 10,
+                      strip_color = "transparent",
+                      strip_line = 0,
+                      legend_size = 10,
+                      legend_position = "bottom",
+                      base_family = "")
+{
 
   require("ggplot2")
   require("ggtext")
@@ -41,6 +52,7 @@ jak_theme <- function(t = "light", base_size = 10, base_color = "gray30", bg_col
       legend.text = element_text(size = legend_size),
       legend.title = element_text(size = legend_size),
       legend.key = element_rect(color = "transparent", fill = "transparent"),
+      legend.position = legend_position,
 
       plot.background = element_rect(fill = bg_color, color = bg_color),
 
@@ -57,13 +69,14 @@ jak_theme <- function(t = "light", base_size = 10, base_color = "gray30", bg_col
         size = strip_size,
         color = base_color,
         fill = strip_color,
-        halign = 0.5, linetype = 1, r = unit(3, "pt"), linewidth = 0.2, width = unit(1, "npc"),
+        width = unit(1, "npc"),
+        halign = 0.5, linetype = 1, r = unit(3, "pt"), linewidth = strip_line,
         padding = margin(2, 0, 1, 0), margin = margin(2, 2, 2, 2)),
       strip.text.y = element_textbox(
         size = strip_size,
         color = base_color,
         fill = strip_color,
-        halign = 0.5, linetype = 1, r = unit(3, "pt"), linewidth = 0.2, hjust = 0,
+        halign = 0.5, linetype = 1, r = unit(3, "pt"), linewidth = strip_line, hjust = 0,
         padding = margin(4, 0, 1, 0), margin = margin(2, 2, 2, 2))
     )
 }

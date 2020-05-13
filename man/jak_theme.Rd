@@ -12,7 +12,9 @@ jak_theme(
   grid_color = "gray80",
   strip_size = 10,
   strip_color = "transparent",
+  strip_line = 0,
   legend_size = 10,
+  legend_position = "bottom",
   base_family = ""
 )
 }
