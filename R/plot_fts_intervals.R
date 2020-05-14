@@ -9,7 +9,7 @@
 
 plot_fts_intervals = function(df, n = 10, feature = c(), p = colorbook$modernUI(2)) {
   taxa = jakR::get_fts_intervals(df) %>%
-    pull(F) %>%
+    pull(FEATURE) %>%
     unique()
   taxa = taxa[1:n]
 
@@ -18,9 +18,9 @@ plot_fts_intervals = function(df, n = 10, feature = c(), p = colorbook$modernUI(
   }
 
   gg = df$i %>%
-    filter(F %in% taxa) %>%
-    ggplot(aes(x = T, y = fit)) +
-    geom_area(aes(group = I, fill = D, y = ifelse(I == 'NONE', 0, fit))) +
+    filter(FEATURE %in% taxa) %>%
+    ggplot(aes(x = TIME, y = fit)) +
+    geom_area(aes(group = INTERVAL, fill = DIRECTION, y = ifelse(INTERVAL == 'NONE', 0, fit))) +
     scale_fill_manual(values = p) +
     geom_line(color = "gray50") +
     geom_line(aes(y = fit + se), color = "gray50", linetype = 2) +
@@ -28,7 +28,7 @@ plot_fts_intervals = function(df, n = 10, feature = c(), p = colorbook$modernUI(
     geom_point(pch = 21, size = 1, color = "gray50") +
     theme(legend.position = "bottom") +
     labs(x = "Days", y = "FIT") +
-    facet_wrap(~F) +
+    facet_wrap(~FEATURE) +
     geom_hline(yintercept = 0, color = "red")
 
   return(gg)

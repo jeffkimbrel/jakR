@@ -6,28 +6,28 @@
 #'
 #' @export
 
-plot_fts_points = function(df, n = 10, s = c(), p = colorbook$modernUI(2)) {
+plot_fts_points = function(df, n = 10, feature = c(), p = colorbook$modernUI(2)) {
   taxa = jakR::get_fts_intervals(df) %>%
-    pull(F) %>%
+    pull(FEATURE) %>%
     unique()
   taxa = taxa[1:n]
 
-  if (length(s) > 0) {
-    taxa = s
+  if (length(feature) > 0) {
+    taxa = feature
   }
 
   A = df$a %>%
-    filter(F %in% taxa)
+    filter(FEATURE %in% taxa)
 
   B = df$a_fit %>%
-    filter(F %in% taxa)
+    filter(FEATURE %in% taxa)
 
-  gg = ggplot(A, aes(x = time, y = abundance, color = class)) +
-    geom_boxplot(fill = NA, aes(group = paste(time, class))) +
-    geom_line(data = B, size = 1, aes(x = T, y = FIT, color = GROUP)) +
-    geom_line(data = B, aes(x = T, y = FIT + SE, color = GROUP), linetype = 3) +
-    geom_line(data = B, aes(x = T, y = FIT - SE, color = GROUP), linetype = 3) +
-    facet_wrap(~F, scales = "free_y") +
+  gg = ggplot(A, aes(x = TIME, y = abundance, color = class)) +
+    geom_boxplot(fill = NA, aes(group = paste(TIME, class))) +
+    geom_line(data = B, size = 1, aes(x = TIME, y = FIT, color = GROUP)) +
+    geom_line(data = B, aes(x = TIME, y = FIT + SE, color = GROUP), linetype = 3) +
+    geom_line(data = B, aes(x = TIME, y = FIT - SE, color = GROUP), linetype = 3) +
+    facet_wrap(~FEATURE, scales = "free_y") +
     scale_fill_manual(values = p) +
     scale_color_manual(values = p) +
     theme(legend.position = "bottom")

@@ -4,7 +4,7 @@
 \alias{plot_fts_points}
 \title{Plot points for a run_fts() dataframe}
 \usage{
-plot_fts_points(df, n = 10, s = c(), p = colorbook$modernUI(2))
+plot_fts_points(df, n = 10, feature = c(), p = colorbook$modernUI(2))
 }
 \arguments{
 \item{df}{A dataframe from run_fts()}

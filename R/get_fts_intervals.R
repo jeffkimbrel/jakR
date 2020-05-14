@@ -6,8 +6,8 @@
 
 get_fts_intervals = function(df) {
   df$i %>%
-    filter(I != "NONE") %>%
-    select(F, D, I, Area, p.value) %>%
+    filter(INTERVAL != "NONE") %>%
+    select(FEATURE, DIRECTION, INTERVAL, Area, p.value, START, END) %>%
     unique() %>%
     mutate(FDR = p.adjust(p.value, method = "BH")) %>%
     select(-p.value) %>%
