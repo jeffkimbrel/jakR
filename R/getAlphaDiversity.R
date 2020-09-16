@@ -14,22 +14,20 @@ getAlphaDiversity = function(p) {
 
   p = filter_taxa(p, function(x) sum(x >= 1) >= (1), TRUE)
 
-  sampleData = data.frame(sample_data(p))
+  ad = estimate_richness(p) %>%
+    rownames_to_column("SAMPLE") %>%
+    mutate(ShannonEvenness = Shannon/log(Observed))
 
-  rich = estimate_richness(p)
-  rich$ShannonEvenness = rich$Shannon / log(rich$Observed)
-  row.names(rich) = gsub("\\.", "-", row.names(rich))
-  rich$SAMPLE = as.factor(row.names(rich))
+  d = as.data.frame(sample_sums(p)) %>%
+    rownames_to_column("SAMPLE") %>%
+    rename("SAMPLE_SUMS" = "sample_sums(p)")
 
-  rich = merge(sampleData, rich)
-  rownames(rich) = rich$SAMPLE
+  ad = left_join(ad, d, by = "SAMPLE")
 
-  depth = as.data.frame(sample_sums(p))
-  depth$SAMPLE = rownames(depth)
-  colnames(depth) = c("SAMPLE_SUMS", "SAMPLE")
+  s = data.frame(sample_data(p)) %>%
+    rownames_to_column("SAMPLE")
 
-  rich = merge(rich, depth)
-  rownames(rich) = rich$SAMPLE
+  ad = left_join(ad, s, by = "SAMPLE")
 
-  rich
+  ad
 }
