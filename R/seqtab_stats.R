@@ -7,7 +7,7 @@
 seqtab_stats = function(seqtab) {
 
   sizes_freq = as.data.frame(table(nchar(colnames(seqtab)))) %>%
-    rename("LENGTH" = "Var1", "FREQ" = "Freq") %>%
+    dplyr::rename("LENGTH" = "Var1", "FREQ" = "Freq") %>%
     mutate("LENGTH" = as.integer(as.character(LENGTH)))
 
   sizes_abund = as.data.frame(tapply(colSums(seqtab), nchar(colnames(seqtab)), sum))
