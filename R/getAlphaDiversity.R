@@ -13,21 +13,23 @@ getAlphaDiversity = function(p) {
   require("phyloseq")
 
   p = filter_taxa(p, function(x) sum(x >= 1) >= (1), TRUE)
-
   ad = estimate_richness(p) %>%
     rownames_to_column("SAMPLE") %>%
     mutate(ShannonEvenness = Shannon/log(Observed))
 
   d = as.data.frame(sample_sums(p)) %>%
     rownames_to_column("SAMPLE") %>%
-    rename("SAMPLE_SUMS" = "sample_sums(p)")
+    rename(SAMPLE_SUMS = "sample_sums(p)")
 
-  ad = left_join(ad, d, by = "SAMPLE")
+  if ("SAMPLE" %in% colnames(ad)) {
+    s = data.frame(sample_data(p))
+  } else {
+    s = data.frame(sample_data(p)) %>%
+      rownames_to_column("SAMPLE")
+  }
 
-  s = data.frame(sample_data(p)) %>%
-    rownames_to_column("SAMPLE")
+  final = left_join(ad, s, by = "SAMPLE") %>%
+    left_join(d, by = "SAMPLE")
 
-  ad = left_join(ad, s, by = "SAMPLE")
-
-  ad
+  return(final)
 }
