@@ -72,8 +72,7 @@ get_alpha_diversity = function (p) {
       tibble()
   }
 
-  final = left_join(s, SHANNON, by = "SAMPLE") %>%
-    left_join(d, by = "SAMPLE")
+  final = left_join(s, SHANNON, by = "SAMPLE")
 
   return(final)
 }
