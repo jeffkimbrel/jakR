@@ -18,7 +18,7 @@ get_alpha_diversity = function (p) {
 
   SAMPLE_SUMS = as.data.frame(sample_sums(p)) %>%
     rownames_to_column("SAMPLE") %>%
-    rename(SAMPLE_SUM = "sample_sums(p)")
+    dplyr::rename(SAMPLE_SUM = "sample_sums(p)")
 
   S = as.data.frame(otu_table(p)) %>%
     t() %>%
@@ -55,7 +55,7 @@ get_alpha_diversity = function (p) {
     select("SAMPLE", "SAMPLE_SUM", "S.obs", "S.chao1", "se.chao1", "S.ACE", "se.ACE", "SIMPSON_D", "SIMPSON_EVENNESS", "SIMPSON_INVERSE", "SHANNON_H", "SHANNON_ENS", "SHANNON_E")
 
   data.frame(sample_data(p)) %>%
-    rename("SAMPLE_orig" = "SAMPLE") %>%
+    dplyr::rename("SAMPLE_orig" = "SAMPLE") %>%
     rownames_to_column("SAMPLE") %>%
     tibble()
 
@@ -63,7 +63,7 @@ get_alpha_diversity = function (p) {
 
   if ("SAMPLE" %in% colnames(s)) {
     s = data.frame(sample_data(p)) %>%
-      rename("SAMPLE_orig" = "SAMPLE") %>%
+      dplyr::rename("SAMPLE_orig" = "SAMPLE") %>%
       rownames_to_column("SAMPLE") %>%
       tibble()
   } else {
