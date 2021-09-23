@@ -7,7 +7,7 @@
 #'
 #' @export
 
-getPhyloDiversity = function(p, runs = 999, null.model = "frequency", minOccurrence = 1) {
+get_phylo_diversity = function(p, runs = 999, null.model = "frequency", minOccurrence = 1) {
   require("picante")
   p = filter_taxa(p, function(x) sum(x >= minOccurrence) >= 1, TRUE)
 
@@ -43,10 +43,10 @@ getPhyloDiversity = function(p, runs = 999, null.model = "frequency", minOccurre
   # SES.MPD
   SES.MPD.unweighted = ses.mpd(counts, tree.co, null.model = null.model, abundance.weighted = FALSE, runs = runs) %>%
     select(mpd.obs.z, mpd.obs.p) %>%
-    rename(ses.MPD.u.z = mpd.obs.z, ses.MPD.u.p = mpd.obs.p)
+    dplyr::rename(ses.MPD.u.z = mpd.obs.z, ses.MPD.u.p = mpd.obs.p)
   SES.MPD.weighted   = ses.mpd(counts, tree.co, null.model = null.model, abundance.weighted = TRUE,  runs = runs) %>%
     select(mpd.obs.z, mpd.obs.p) %>%
-    rename(ses.MPD.w.z = mpd.obs.z, ses.MPD.w.p = mpd.obs.p)
+    dplyr::rename(ses.MPD.w.z = mpd.obs.z, ses.MPD.w.p = mpd.obs.p)
 
   phyloDiversity = merge(phyloDiversity, SES.MPD.unweighted, by = 'row.names')
   rownames(phyloDiversity) = phyloDiversity$Row.names
@@ -58,10 +58,10 @@ getPhyloDiversity = function(p, runs = 999, null.model = "frequency", minOccurre
   # SES.MNTD
   SES.MNTD.unweighted = ses.mntd(counts, tree.co, null.model = null.model, abundance.weighted = FALSE, runs = runs) %>%
     select(mntd.obs.z, mntd.obs.p) %>%
-    rename(ses.MNTD.u.z = mntd.obs.z, ses.MNTD.u.p = mntd.obs.p)
+    dplyr::rename(ses.MNTD.u.z = mntd.obs.z, ses.MNTD.u.p = mntd.obs.p)
   SES.MNTD.weighted   = ses.mntd(counts, tree.co, null.model = null.model, abundance.weighted = TRUE,  runs = runs) %>%
     select(mntd.obs.z, mntd.obs.p) %>%
-    rename(ses.MNTD.w.z = mntd.obs.z, ses.MNTD.w.p = mntd.obs.p)
+    dplyr::rename(ses.MNTD.w.z = mntd.obs.z, ses.MNTD.w.p = mntd.obs.p)
 
   phyloDiversity = merge(phyloDiversity, SES.MNTD.unweighted, by = 'row.names')
   rownames(phyloDiversity) = phyloDiversity$Row.names
