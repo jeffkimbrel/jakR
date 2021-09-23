@@ -77,3 +77,16 @@ get_phylo_diversity = function(p, runs = 999, null.model = "frequency", minOccur
 
   return(phyloDiversity)
 }
+
+#' Phylogenetic Diversity Measures (deprecated)
+#'
+#' @param p A phyloseq object
+#' @param runs Number of bootstraps to run
+#' @param null.model The null.model for the SES calculations
+#' @param minOccurrence Species must be found at least this many times in at least one sample to be kept
+#'
+#' @export
+
+getPhyloDiversity = function(p) {
+  .Deprecated("get_phylo_diversity(p)")
+}
