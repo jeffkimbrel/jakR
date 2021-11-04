@@ -3,6 +3,7 @@
 export(cbPalette)
 export(colorbook)
 export(drep_extract)
+export(format_dt)
 export(getAlphaDiversity)
 export(getPhyloDiversity)
 export(getSig)
