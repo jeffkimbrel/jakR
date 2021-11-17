@@ -2,11 +2,12 @@
 #'
 #' @param row_count Number of rows in the default view
 #' @param rownames Include rownames
+#' @param
 #'
 #' @export
 
 
-format_dt <- function(x, row_count = 10, rownames = FALSE) {
+format_dt <- function(x, row_count = 10, rownames = FALSE, filename = "file") {
 
   require(DT)
 
@@ -17,7 +18,13 @@ format_dt <- function(x, row_count = 10, rownames = FALSE) {
                 rownames = rownames,
                 extensions = 'Buttons',
                 options = list(dom = 'Blfrtip',
-                               buttons = c('copy', 'csv', 'excel'),
+
+
+                               buttons = list(
+                                 list(extend = 'copy'),
+                                 list(extend = 'csv',   filename = filename),
+                                 list(extend = 'excel', filename = filename))
+                               ,
                                lengthMenu = list(c(row_count, 50, -1),
                                                  c(row_count, 50, "All")))) %>%
     DT::formatStyle(0,

@@ -4,7 +4,7 @@
 \alias{format_dt}
 \title{Format DT Datatable}
 \usage{
-format_dt(x, row_count = 10, rownames = FALSE)
+format_dt(x, row_count = 10, rownames = FALSE, filename = "file")
 }
 \arguments{
 \item{row_count}{Number of rows in the default view}

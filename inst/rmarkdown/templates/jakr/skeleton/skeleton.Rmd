@@ -1,0 +1,54 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+params:
+  theme_bg: black
+  image_type: pdf
+  echo_type: TRUE
+  path: "/PATH/TO/R/FILES"
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(inputFile, 
+      encoding = encoding, 
+      output_dir = "/PATH/TO/LAB/NOTEBOOK")
+  })
+---
+
+# TITLE
+
+<TOC>
+
+<date>`r Sys.time()`</date>
+
+# Setting Up
+
+<rmd>This markdown file was knitted from an `.Rmd` file here:
+``r params$path``
+Any `.Rds`, chunk cache files or other output will be written there</rmd>
+
+```{r, message=FALSE}
+library(knitr)
+library(rmdformats)
+library(tidyverse)  
+```
+
+```{r setup, echo=FALSE, message=FALSE}
+## Global options
+options(max.print="100", scipen = 999)
+opts_chunk$set(echo=params$echo_type,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=FALSE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE, 
+               dev = params$image_type, 
+               fig.height = 5, 
+               fig.width = 8)
+
+data.frame(unlist(as.vector(params))) %>%
+  rename("param" = "unlist.as.vector.params..") %>%
+  rownames_to_column("name") %>%
+  knitr::kable()
+```
+

@@ -8,3 +8,5 @@ packageVersion("jakR")
 
 #from github
 #install_github("jeffkimbrel/jakR")
+
+#usethis::use_rmarkdown_template("jakR")
