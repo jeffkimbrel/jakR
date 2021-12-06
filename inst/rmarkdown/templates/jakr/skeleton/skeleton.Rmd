@@ -2,6 +2,7 @@
 output:
   md_document:
     variant: markdown_github
+    pandoc_args: ["--wrap=preserve"]
 params:
   theme_bg: black
   image_type: pdf
@@ -22,9 +23,10 @@ knit: (function(inputFile, encoding) {
 
 # Setting Up
 
-<rmd>This markdown file was knitted from an `.Rmd` file here:
+<rmd>
+This report file was knitted from an R markdown file. The `.Rmd` and any `.Rds` or chunk cache files will be written here:
 ``r params$path``
-Any `.Rds`, chunk cache files or other output will be written there</rmd>
+</rmd>
 
 ```{r, message=FALSE}
 library(knitr)
@@ -51,4 +53,55 @@ data.frame(unlist(as.vector(params))) %>%
   rownames_to_column("name") %>%
   knitr::kable()
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Session Info
+
+```{r}
+df_sess = sessioninfo::platform_info() %>%
+  unlist() %>%
+  as.data.frame() %>%
+  rownames_to_column()
+
+colnames(df_sess) = c("name", "value")
+  
+df_sess %>%
+  knitr::kable()
+
+sessioninfo::package_info() %>%
+  as_tibble() %>%
+  filter(attached == TRUE) %>%
+  select(package, loadedversion, source, date) %>%
+  knitr::kable()
+```
+
 
