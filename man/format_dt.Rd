@@ -10,6 +10,8 @@ format_dt(x, row_count = 10, rownames = FALSE, filename = "file")
 \item{row_count}{Number of rows in the default view}
 
 \item{rownames}{Include rownames}
+
+\item{filename}{Saved file stub}
 }
 \description{
 Format DT Datatable
