@@ -5,7 +5,9 @@
 run_fts = function (ms_object, taxa_level, fts_class, fts_id, fts_time, B = 99, C = 0.3, log = TRUE, norm = TRUE)
 
 {
-  require("metagenomeSeq")
+  require(metagenomeSeq)
+  require(dplyr)
+
   classes = sort(unique(fData(ms_object)[, taxa_level]))
   intervals_df = data.frame()
   abundance_df = data.frame()
@@ -64,7 +66,7 @@ run_fts = function (ms_object, taxa_level, fts_class, fts_id, fts_time, B = 99, 
   }
 
   abundance_df = abundance_df %>%
-    rename("TIME" = "time")
+    dplyr::rename("TIME" = "time")
   l = list(i = intervals_df, a = abundance_df, a_fit = fit_df)
   return(l)
 }
