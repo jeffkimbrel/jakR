@@ -7,17 +7,20 @@ params:
   theme_bg: black
   image_type: pdf
   echo_type: TRUE
+  seed: 1977
   path: "/PATH/TO/R/FILES"
 knit: (function(inputFile, encoding) {
     rmarkdown::render(inputFile, 
       encoding = encoding, 
       output_dir = "/PATH/TO/LAB/NOTEBOOK")
   })
+editor_options: 
+  chunk_output_type: console
 ---
 
 # TITLE
 
-<TOC>
+{{TOC}}
 
 <date>`r Sys.time()`</date>
 
@@ -52,6 +55,9 @@ data.frame(unlist(as.vector(params))) %>%
   rename("param" = "unlist.as.vector.params..") %>%
   rownames_to_column("name") %>%
   knitr::kable()
+
+theme_set(jak_theme(t = params$theme_bg))
+set.seed(params$seed)
 ```
 
 
