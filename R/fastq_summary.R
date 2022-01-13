@@ -1,11 +1,11 @@
-#' Summarize a fastq_filter.py file
+#' Summarize a fastq_info.py file
 #'
 #' @export
-#' @param file Output from fastq_filter.py
+#' @param file Output from fastq_info.py
 #' @param plot Return a ggplot object
 #' @param md Return tables in markdown format
 
-fastq_filter_summary = function(file, plot = TRUE, md = TRUE) {
+fastq_info_summary = function(file, plot = TRUE, md = TRUE) {
 
   require(tidyverse)
   require(jsonlite)
