@@ -13,7 +13,7 @@ knit: (function(inputFile, encoding) {
     rmarkdown::render(inputFile, 
       encoding = encoding, 
       output_dir = "/PATH/TO/LAB/NOTEBOOK")
-  })
+    })
 editor_options: 
   chunk_output_type: console
 ---
@@ -34,7 +34,8 @@ This report file was knitted from an R markdown file. The `.Rmd` and any `.Rds` 
 ```{r, message=FALSE}
 library(knitr)
 library(rmdformats)
-library(tidyverse)  
+library(tidyverse)
+library(jakR)
 ```
 
 ```{r setup, echo=FALSE, message=FALSE}
@@ -52,7 +53,7 @@ opts_chunk$set(echo=params$echo_type,
                fig.width = 8)
 
 data.frame(unlist(as.vector(params))) %>%
-  rename("param" = "unlist.as.vector.params..") %>%
+  dplyr::rename("param" = "unlist.as.vector.params..") %>%
   rownames_to_column("name") %>%
   knitr::kable()
 
