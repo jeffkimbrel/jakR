@@ -52,8 +52,13 @@ opts_chunk$set(echo=params$echo_type,
                fig.height = 5, 
                fig.width = 8)
 
-data.frame(unlist(as.vector(params))) %>%
-  dplyr::rename("param" = "unlist.as.vector.params..") %>%
+a = data.frame(unlist(as.vector(params))) %>%
+  dplyr::rename("param" = "unlist.as.vector.params..")
+
+a['path', 'param'] = paste("[", a['path', 'param'], "](", a['path', 'param'], ")", sep = "") %>%
+  gsub(pattern = " ", replacement = "%20")
+
+a %>%
   rownames_to_column("name") %>%
   knitr::kable()
 
