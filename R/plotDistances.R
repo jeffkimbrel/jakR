@@ -16,6 +16,7 @@ plot_distances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", 
 
   require("phyloseq")
   require("tidyverse")
+  require("dplyr")
 
   # calc distances
   wu.m = phyloseq::distance(p, m) %>%
@@ -54,10 +55,10 @@ plot_distances = function(p = GlobalPatterns, m = "wunifrac", s = "X.SampleID", 
   d2 = paste(d, "2", sep = "_")
 
   df = wu.sd %>%
-    rename(!!s1 := "Var1") %>%
-    rename(!!s2 := "Var2") %>%
-    rename(!!d1 := "Type1") %>%
-    rename(!!d2 := "Type2")
+    dplyr::rename(!!s1 := "Var1") %>%
+    dplyr::rename(!!s2 := "Var2") %>%
+    dplyr::rename(!!d1 := "Type1") %>%
+    dplyr::rename(!!d2 := "Type2")
 
 
   l = list("plot" = plot_object, "df" = df)
