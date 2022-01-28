@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotDistances.R
 \name{plotDistances}
 \alias{plotDistances}
-\title{Boxplot of Beta-diversity Distances}
+\title{plotDistances() (deprecated)}
 \usage{
 plotDistances(
   p = GlobalPatterns,
@@ -12,17 +12,6 @@ plotDistances(
   plot = TRUE
 )
 }
-\arguments{
-\item{p}{A phyloseq object}
-
-\item{m}{Distance metric}
-
-\item{s}{Column name with sample IDs}
-
-\item{d}{Grouping for comparisons}
-
-\item{plot}{Set to true to include a boxplot of the distances}
-}
 \description{
-Takes a `phyloseq` object with samples grouped in the sample data, calculates all pairwise beta-diversity metrics, and plots the distances in facets.
+plotDistances() (deprecated)
 }
