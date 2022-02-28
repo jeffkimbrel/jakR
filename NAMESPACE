@@ -3,6 +3,7 @@
 export(cbPalette)
 export(colorbook)
 export(drep_extract)
+export(fastq_filter_summary_amplicon)
 export(fastq_info_summary)
 export(format_dt)
 export(getAlphaDiversity)
