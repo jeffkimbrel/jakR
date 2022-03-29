@@ -11,17 +11,21 @@
 #' @param bg_color background color
 #' @param t Themes
 
-jak_theme <- function(t = "light",
-                      base_size = 10,
-                      base_color = "gray30",
-                      bg_color = "transparent",
-                      grid_color = "gray80",
-                      strip_size = 10,
-                      strip_color = "transparent",
-                      strip_line = 0,
-                      legend_size = 10,
-                      legend_position = "bottom",
-                      base_family = "")
+jak_theme = function(t = "light",
+                     base_size = 10,
+                     plot_title_size = 12,
+                     axis_title_size = 11,
+                     base_color = "gray30",
+                     plot_title_color = "gray30",
+                     axis_title_color = "gray30",
+                     bg_color = "transparent",
+                     grid_color = "gray80",
+                     strip_size = 10,
+                     strip_color = "transparent",
+                     strip_line = 0,
+                     legend_size = 10,
+                     legend_position = "bottom",
+                     base_family = "")
 {
 
   require("ggplot2")
@@ -29,6 +33,8 @@ jak_theme <- function(t = "light",
 
   if (t == "black") {
     base_color = "gray80"
+    plot_title_color = "gray80"
+    axis_title_color = "gray80"
     bg_color = "black"
     grid_color = "gray30"
   }
@@ -50,11 +56,12 @@ jak_theme <- function(t = "light",
       legend.background = element_blank(),
       legend.box.background = element_rect(fill = "transparent", color = base_color, size = 0.2),
       legend.text = element_text(size = legend_size),
-      legend.title = element_text(size = legend_size),
+      legend.title = element_text(size = legend_size, face="bold"),
       legend.key = element_rect(color = "transparent", fill = "transparent"),
       legend.position = legend_position,
 
       plot.background = element_rect(fill = bg_color, color = bg_color),
+      plot.title = element_text(size = plot_title_size, face="bold", color = plot_title_color, hjust = 0),
 
       panel.background = element_rect(fill = "transparent", color = base_color),
       panel.grid.major = element_line(color = grid_color, size = 0.2),
@@ -63,6 +70,9 @@ jak_theme <- function(t = "light",
 
       axis.text = element_text(color = base_color),
       axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+
+      axis.title.x = element_text(color=axis_title_color, size=axis_title_size, face="bold"),
+      axis.title.y = element_text(color=axis_title_color, size=axis_title_size, face="bold", angle = 90),
 
       strip.background = element_blank(),
       strip.text.x = element_textbox(
@@ -80,7 +90,6 @@ jak_theme <- function(t = "light",
         padding = margin(4, 0, 1, 0), margin = margin(2, 2, 2, 2))
     )
 }
-
 
 
 

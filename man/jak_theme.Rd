@@ -7,7 +7,11 @@
 jak_theme(
   t = "light",
   base_size = 10,
+  plot_title_size = 12,
+  axis_title_size = 11,
   base_color = "gray30",
+  plot_title_color = "gray30",
+  axis_title_color = "gray30",
   bg_color = "transparent",
   grid_color = "gray80",
   strip_size = 10,
