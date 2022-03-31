@@ -18,9 +18,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-# TITLE
+project #ELN 
+⬅️ Previous: 
+➡️ Next: 
 
-[[`r Sys.time()`]]
+Analysis folder: 
+
+[[`r Sys.Date()`]]
 
 # Setting Up
 
@@ -57,11 +61,10 @@ a %>%
   rownames_to_column("name") %>%
   knitr::kable()
 
-theme_set(jak_theme(t = params$theme_bg))
 set.seed(params$seed)
 ```
 
-
+# Background
 
 
 
