@@ -4,10 +4,12 @@
 \alias{get_alpha_diversity}
 \title{Alpha-Diversity Measures}
 \usage{
-get_alpha_diversity(p)
+get_alpha_diversity(p, id_col = "SAMPLE")
 }
 \arguments{
 \item{p}{A phyloseq object}
+
+\item{id_col}{The name of the column with sample IDs}
 }
 \description{
 An extension of the phyloseq `estimate_richness` function to include Shannon's
