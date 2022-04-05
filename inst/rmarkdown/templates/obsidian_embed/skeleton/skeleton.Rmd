@@ -1,0 +1,111 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+    pandoc_args: ["--wrap=preserve"]
+params:
+  theme_bg: black
+  image_type: png
+  echo_type: TRUE
+  seed: 1977
+  path: "/PATH/TO/R/FILES"
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(inputFile, 
+      encoding = encoding, 
+      output_dir = "/Users/kimbrel1/JAK_obsidian/9.0 ELN/embeds")
+  })
+editor_options: 
+  chunk_output_type: console
+---
+
+`r Sys.Date()`
+
+# Setting Up
+
+<mark style="background: #037BCFA6;">This report file is intended to be embedded inside an Obsidian note, and was knitted from an R markdown file. The `.Rmd` and any `.Rds` or chunk cache files will be written [here](<file://`r params$path`>)</mark>
+
+```{r, message=FALSE}
+library(knitr)
+library(rmdformats)
+library(tidyverse)
+library(jakR)
+```
+
+```{r setup, echo=FALSE, message=FALSE}
+## Global options
+options(max.print="100", scipen = 999)
+opts_chunk$set(echo=params$echo_type,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=FALSE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE, 
+               dev = params$image_type, 
+               fig.height = 5, 
+               fig.width = 8)
+
+a = data.frame(unlist(as.vector(params))) %>%
+  dplyr::rename("param" = "unlist.as.vector.params..")
+
+a['path', 'param'] = paste("[", a['path', 'param'], "](<file://", a['path', 'param'], ">)", sep = "") %>%
+  gsub(pattern = " ", replacement = "%20")
+
+a %>%
+  rownames_to_column("name") %>%
+  knitr::kable()
+
+set.seed(params$seed)
+```
+
+# Background
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Session Info
+
+```{r}
+df_sess = sessioninfo::platform_info() %>%
+  unlist() %>%
+  as.data.frame() %>%
+  rownames_to_column()
+
+colnames(df_sess) = c("name", "value")
+  
+df_sess %>%
+  knitr::kable()
+
+sessioninfo::package_info() %>%
+  as_tibble() %>%
+  filter(attached == TRUE) %>%
+  select(package, loadedversion, source, date) %>%
+  knitr::kable()
+```
+
+
