@@ -18,6 +18,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+#ELN/embedded
+
 `r Sys.Date()`
 
 # Setting Up
