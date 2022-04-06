@@ -90,7 +90,7 @@ set.seed(params$seed)
 # Session Info
 
 ```{r, echo = F}
-file_name = paste("session_info", format(Sys.time(), format="%Y%m%d%H%M%S"), ".txt", sep = ".")
+file_name = paste("session_info", format(Sys.time(), format="%Y%m%d%H%M%S"), "txt", sep = ".")
 
 sessioninfo::session_info(to_file = file.path(params$path, file_name))
 session_info = paste0("[session_info.txt](<file://", file.path(params$path, file_name), ">)")
