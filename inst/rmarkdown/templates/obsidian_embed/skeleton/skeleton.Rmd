@@ -90,27 +90,10 @@ set.seed(params$seed)
 # Session Info
 
 ```{r, echo = F}
-df_sess = sessioninfo::platform_info() %>%
-  unlist() %>%
-  as.data.frame() %>%
-  rownames_to_column()
+file_name = paste("session_info", format(Sys.time(), format="%Y%m%d%H%M%S"), ".txt", sep = ".")
 
-colnames(df_sess) = c("name", "value")
-  
-df_sess %>%
-  write_delim(file.path(params$path, "session_info_environment.txt"), delim = "\t")
-
-sessioninfo::package_info() %>%
-  as_tibble() %>%
-  filter(attached == TRUE) %>%
-  select(package, loadedversion, source, date) %>%
-  write_delim(file.path(params$path, "session_info_packages.txt"), delim = "\t")
-
-session_info_environment = paste0("[session_info_environment.txt](<file://", file.path(params$path, "session_info_environment.txt"), ">)")
-session_info_packages = paste0("[session_info_packages.txt](<file://", file.path(params$path, "session_info_packages.txt"), ">)")
+sessioninfo::session_info(to_file = file.path(params$path, file_name))
+session_info = paste0("[session_info.txt](<file://", file.path(params$path, file_name), ">)")
 ```
 
-Environment session info: `r session_info_environment`
-Package session info: `r session_info_packages`
-
-
+`r session_info`
