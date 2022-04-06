@@ -10,6 +10,7 @@ params:
   seed: 1977
   path: "/PATH/TO/R/FILES"
 knit: (function(inputFile, encoding) {
+
     rmarkdown::render(inputFile, 
       encoding = encoding, 
       output_dir = "/Users/kimbrel1/JAK_obsidian/9.0 ELN/embeds")
@@ -53,10 +54,6 @@ a = data.frame(unlist(as.vector(params))) %>%
 a['path', 'param'] = paste("[", a['path', 'param'], "](<file://", a['path', 'param'], ">)", sep = "") %>%
   gsub(pattern = " ", replacement = "%20")
 
-a %>%
-  rownames_to_column("name") %>%
-  knitr::kable()
-
 set.seed(params$seed)
 ```
 
@@ -92,7 +89,7 @@ set.seed(params$seed)
 
 # Session Info
 
-```{r}
+```{r, echo = F}
 df_sess = sessioninfo::platform_info() %>%
   unlist() %>%
   as.data.frame() %>%
@@ -101,13 +98,19 @@ df_sess = sessioninfo::platform_info() %>%
 colnames(df_sess) = c("name", "value")
   
 df_sess %>%
-  knitr::kable()
+  write_delim(file.path(params$path, "session_info_environment.txt"), delim = "\t")
 
 sessioninfo::package_info() %>%
   as_tibble() %>%
   filter(attached == TRUE) %>%
   select(package, loadedversion, source, date) %>%
-  knitr::kable()
+  write_delim(file.path(params$path, "session_info_packages.txt"), delim = "\t")
+
+session_info_environment = paste0("[session_info_environment.txt](<file://", file.path(params$path, "session_info_environment.txt"), ">)")
+session_info_packages = paste0("[session_info_packages.txt](<file://", file.path(params$path, "session_info_packages.txt"), ">)")
 ```
+
+Environment session info: `r session_info_environment`
+Package session info: `r session_info_packages`
 
 
