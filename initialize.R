@@ -4,7 +4,7 @@ devtools::load_all()
 devtools::document()
 devtools::check()
 
-install("../jakR")
+devtools::install("../jakR")
 packageVersion("jakR")
 
 #from github
