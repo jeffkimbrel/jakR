@@ -70,7 +70,7 @@ fastq_info_summary = function(file) {
   s_for_return = s %>%
     as.data.frame() %>%
     rownames_to_column("METRIC") %>%
-    rename("VALUE" = ".")
+    dplyr::rename("VALUE" = ".")
 
   p = df %>%
     group_by(SAMPLE) %>%
