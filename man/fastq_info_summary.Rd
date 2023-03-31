@@ -4,14 +4,12 @@
 \alias{fastq_info_summary}
 \title{Summarize a fastq_info.py file}
 \usage{
-fastq_info_summary(file, plot = TRUE, md = TRUE)
+fastq_info_summary(file)
 }
 \arguments{
 \item{file}{Output from fastq_info.py}
 
 \item{plot}{Return a ggplot object}
-
-\item{md}{Return tables in markdown format}
 }
 \description{
 Summarize a fastq_info.py file

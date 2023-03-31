@@ -3,9 +3,8 @@
 #' @export
 #' @param file Output from fastq_info.py
 #' @param plot Return a ggplot object
-#' @param md Return tables in markdown format
 
-fastq_info_summary = function(file, plot = TRUE, md = TRUE) {
+fastq_info_summary = function(file) {
 
   require(tidyverse)
   require(jsonlite)
@@ -62,53 +61,36 @@ fastq_info_summary = function(file, plot = TRUE, md = TRUE) {
     message(crayon::green("All reads appear to be from the same Illumina Run"))
   }
 
-  if (md) {
-    run_id %>%
-      knitr::kable() %>% print()
-
-  } else {
-    run_id %>%
-      print()
-  }
-
-  message(crayon::green("\nSummary Statistics"))
-
   s = df %>%
     group_by(SAMPLE) %>%
     summarise(TOTAL_READS = sum(TOTAL_READS)) %>%
     pull(TOTAL_READS) %>%
     pastecs::stat.desc(norm = F)
 
+  s_for_return = s %>%
+    as.data.frame() %>%
+    rownames_to_column("METRIC") %>%
+    rename("VALUE" = ".")
 
-
-  if (md) {
-    s %>%
-      as.data.frame() %>%
-      rownames_to_column("METRIC") %>%
-      rename("VALUE" = ".") %>%
-      knitr::kable() %>% print()
-
-  } else {
-    s %>%
-      as.data.frame() %>%
-      rownames_to_column("METRIC") %>%
-      rename("VALUE" = ".") %>%
-      print()
-  }
-
-  if (plot) {
-    df %>%
-      group_by(SAMPLE) %>%
-      summarise(TOTAL_READS = sum(TOTAL_READS)) %>%
-      mutate(DIFF_FROM_MEAN = TOTAL_READS - mean(TOTAL_READS)) %>%
-      ggplot(aes(x = reorder(SAMPLE, TOTAL_READS), y = TOTAL_READS)) +
+  p = df %>%
+    group_by(SAMPLE) %>%
+    summarise(TOTAL_READS = sum(TOTAL_READS)) %>%
+    mutate(DIFF_FROM_MEAN = TOTAL_READS - mean(TOTAL_READS)) %>%
+    ggplot(aes(x = reorder(SAMPLE, TOTAL_READS), y = TOTAL_READS)) +
       geom_hline(yintercept = s['mean'], color = "gray70", linetype = 3) +
       geom_point(size = 4, pch = 21, aes(fill = abs(DIFF_FROM_MEAN))) +
       scale_fill_fermenter() +
       theme(legend.position = "right") +
       labs(fill = "Difference from Mean", y = "Count of Reads per Sample", x = "Sample Name", title = file) +
       scale_y_continuous(labels = function(x) format(x, big.mark = ",", decimal.mark = ".", scientific = FALSE))
-  }
+
+
+  return(list("run_id" = run_id,
+              "stats" = s_for_return,
+              "pairs" = pair_count_match,
+              "plot" = p)
+  )
+
 }
 
 #' Summarize a fastq_filter.py file in amplicon mode
