@@ -97,8 +97,9 @@ fastq_info_summary = function(file) {
 #'
 #' @export
 #' @param file Output from fastq_filter.py
+#' @param text_size Text size for the filtered plot
 
-fastq_filter_summary_amplicon = function(file) {
+fastq_filter_summary_amplicon = function(file, text_size = 8) {
 
   require(tidyverse)
 
@@ -106,7 +107,7 @@ fastq_filter_summary_amplicon = function(file) {
     select(SAMPLE, ORDER_VERIFIED, CF_READS_OUT, CF_READS_REMOVED, CF_BP_OUT, CF_BP_REMOVED) %>%
     pivot_longer(cols = c(CF_READS_OUT, CF_READS_REMOVED, CF_BP_OUT, CF_BP_REMOVED))
 
-  a = df  %>%
+  a = df %>%
     separate(name, into = c("FILTER", "TYPE", "STEP")) %>%
     ggplot(aes(x = reorder(SAMPLE, value), y = value, fill = STEP)) +
     jak_theme(t ="black") +
@@ -114,8 +115,8 @@ fastq_filter_summary_amplicon = function(file) {
     facet_grid(~TYPE, scales = "free_x") +
     coord_flip() +
     scale_fill_manual(values = palette_jak$bay(2)) +
-    labs(title = file, subtitle = "Contamination Filter") +
-    geom_text(aes(label = ifelse(STEP == "OUT", value, NA)), color = "gray70", hjust = 0.3)
+    labs(subtitle = file, title = "Contamination Filter", x = "Sample", y = "Reads") +
+    geom_text(aes(label = ifelse(STEP == "OUT", value, NA)), size = 2, color = "gray70", hjust = 0.3)
 
 
   b = df %>%
@@ -129,11 +130,11 @@ fastq_filter_summary_amplicon = function(file) {
     facet_grid(~TYPE, scales = "free_x") +
     coord_flip() +
     scale_fill_viridis_c() +
-    labs(title = file, subtitle = "Contamination Filter", x = "Sample") +
+    labs(subtitle = file, title = "Reads Removed (% of total)", x = "Sample", y = "Reads Removed") +
     theme(legend.position = "none")
 
   df_final = df %>%
     pivot_wider(names_from = name, values_from = value)
 
-  l = list("a" = a, "b" = b, "df" = df_final)
+  l = list("filtered" = a, "reads_removed" = b, "df" = df_final)
 }

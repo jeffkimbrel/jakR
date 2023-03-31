@@ -4,10 +4,12 @@
 \alias{fastq_filter_summary_amplicon}
 \title{Summarize a fastq_filter.py file in amplicon mode}
 \usage{
-fastq_filter_summary_amplicon(file)
+fastq_filter_summary_amplicon(file, text_size = 8)
 }
 \arguments{
 \item{file}{Output from fastq_filter.py}
+
+\item{text_size}{Text size for the filtered plot}
 }
 \description{
 Summarize a fastq_filter.py file in amplicon mode
