@@ -6,9 +6,12 @@
 \usage{
 cbPalette(n)
 }
+\arguments{
+\item{n}{Number of colors to return}
+}
 \description{
 This palette can be used all over
 }
 \examples{
-cbPalette(n)
+cbPalette(3)
 }

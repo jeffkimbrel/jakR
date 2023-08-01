@@ -4,9 +4,11 @@
 #'
 #' Bay, winter, lake and sailboat from https://github.com/jakelawlor/PNWColors
 #'
+#' @param n Number of colors to return
+#'
 #' @export
 #' @examples
-#' palette_jak$jak(n)
+#' palette_jak$jak$blue1
 
 palette_jak = list()
 

@@ -10,6 +10,9 @@ An object of class \code{list} of length 7.
 \usage{
 palette_jak
 }
+\arguments{
+\item{n}{Number of colors to return}
+}
 \description{
 Miscellaneous palettes
 }
@@ -17,6 +20,6 @@ Miscellaneous palettes
 Bay, winter, lake and sailboat from https://github.com/jakelawlor/PNWColors
 }
 \examples{
-palette_jak$jak(n)
+palette_jak$jak$blue1
 }
 \keyword{datasets}
