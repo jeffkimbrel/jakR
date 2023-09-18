@@ -1,5 +1,5 @@
 url: https://jeffkimbrel.github.io/jakR/
 template:
   bootstrap: 5
-  theme: sandstone
+  bootswatch: sandstone
 
