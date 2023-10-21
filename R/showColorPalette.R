@@ -3,32 +3,35 @@
 #' @export
 #' @param pal A color palette
 
-showColorPalette = function(pal) {
+show_color_palette = function(pal,
+                              labels = FALSE,
+                              label_angle = 0) {
+
+  rows = ceiling(sqrt(length(pal)))
 
   require("tidyverse")
   df = data.frame(pal)
-  df$TAXA = as.factor(rownames(df))
-  df$VAL = 1
-  df$rank <- seq.int(nrow(df))
+  df$TAXA = as.integer(rownames(df))
+  #df$rank <- seq.int(nrow(df))
 
-  colnames(df) = c("COLOR", "TAXA", "VALUE", "RANK")
+  colnames(df) = c("COLOR", "TAXA")
 
-  df = df  %>%
-    #arrange(desc(TAXA)) %>%
-    mutate(TAXA = reorder(TAXA, RANK))
+  df = df |>
+    mutate(y = ntile(n = rows)) |>
+    group_by(y) |>
+    mutate(x = seq(n()))
 
-  p = ggplot(df, aes(x = TAXA, y = VALUE)) +
-    jak_theme() +
-    theme(panel.grid.minor = element_blank(),
-          panel.grid.major = element_blank(),
-          axis.title.x     = element_blank(),
-          axis.text.x      = element_blank(),
-          axis.ticks.x     = element_blank(),
-          axis.ticks.y     = element_blank(),
-          axis.title.y     = element_blank(),
-          axis.text.y      = element_blank()) +
-    geom_col(aes(fill = COLOR)) +
+  p = df |>
+    ggplot(aes(x = x, y = y, fill = COLOR)) +
+    theme_void() +
+    geom_tile() +
     scale_fill_identity() +
-    facet_wrap( ~ TAXA, scales = "free_x")
-  return(p)
+    scale_y_reverse()
+
+  if (isTRUE(labels)) {
+    p = p + geom_text(aes(label = COLOR), angle = label_angle)
+  }
+
+  p
 }
+
