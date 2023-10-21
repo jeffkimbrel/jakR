@@ -58,6 +58,9 @@
     <loc>https://jeffkimbrel.github.io/jakR/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://jeffkimbrel.github.io/jakR/reference/jak_palettes.html</loc>
+  </url>
+  <url>
     <loc>https://jeffkimbrel.github.io/jakR/reference/jak_theme.html</loc>
   </url>
   <url>
@@ -103,6 +106,9 @@
     <loc>https://jeffkimbrel.github.io/jakR/reference/seqtab_stats.html</loc>
   </url>
   <url>
+    <loc>https://jeffkimbrel.github.io/jakR/reference/show_all_color_palettes.html</loc>
+  </url>
+  <url>
     <loc>https://jeffkimbrel.github.io/jakR/reference/show_color_palette.html</loc>
   </url>
   <url>
@@ -110,9 +116,6 @@
   </url>
   <url>
     <loc>https://jeffkimbrel.github.io/jakR/reference/summarySE.html</loc>
-  </url>
-  <url>
-    <loc>https://jeffkimbrel.github.io/jakR/reference/tol.html</loc>
   </url>
   <url>
     <loc>https://jeffkimbrel.github.io/jakR/reference/zeroOTU.html</loc>

@@ -6,11 +6,11 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">jakR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.11</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.11.14</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="color-palettes">Color Palettes<a class="anchor" aria-label="anchor" href="#color-palettes"></a></h2>
       
       
 
@@ -47,20 +47,97 @@
 
       <dl><dt>
           
-          <code><a href="all_are_valid_colors.html">all_are_valid_colors()</a></code> 
+          <code><a href="palette_jak.html">palette_jak()</a></code> 
         </dt>
-        <dd>Check if a string contains valid color strings</dd>
+        <dd>A full-service color palette creator</dd>
       </dl><dl><dt>
           
-          <code><a href="drep_extract.html">drep_extract()</a></code> 
+          <code><a href="show_color_palette.html">show_color_palette()</a></code> 
         </dt>
-        <dd>Extract dRep genome results</dd>
+        <dd>showColorPalette</dd>
+      </dl><dl><dt>
+          
+          <code><a href="show_all_color_palettes.html">show_all_color_palettes()</a></code> 
+        </dt>
+        <dd>Show all color palettes in the jak_palettes object</dd>
       </dl><dl><dt>
           
           <code><a href="expand_named_palette.html">expand_named_palette()</a></code> 
         </dt>
         <dd>Expanded Color Palette with Names</dd>
       </dl><dl><dt>
+          
+          <code><a href="get_phylo_palette.html">get_phylo_palette()</a></code> 
+        </dt>
+        <dd>getPhyloPalette</dd>
+      </dl><dl><dt>
+          
+          <code><a href="jak_palettes.html">jak_palettes</a></code> 
+        </dt>
+        <dd>Color Palettes</dd>
+      </dl></div><div class="section level2">
+      <h2 id="microbial-communities">Microbial Communities<a class="anchor" aria-label="anchor" href="#microbial-communities"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_alpha_diversity.html">get_alpha_diversity()</a></code> 
+        </dt>
+        <dd>Alpha-Diversity Measures</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_phylo_diversity.html">get_phylo_diversity()</a></code> 
+        </dt>
+        <dd>Phylogenetic Diversity Measures</dd>
+      </dl><dl><dt>
+          
+          <code><a href="permanova.html">permanova()</a></code> 
+        </dt>
+        <dd>Permanova (adonis) and visualization</dd>
+      </dl><dl><dt>
+          
+          <code><a href="pairwiseAdonis.html">pairwiseAdonis()</a></code> 
+        </dt>
+        <dd>Calculate Total and Pairwise Adonis Values</dd>
+      </dl><dl><dt>
+          
+          <code><a href="phylo_other.html">phylo_other()</a></code> 
+        </dt>
+        <dd>Combine low-abundant taxa into a single category</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_distances.html">plot_distances()</a></code> 
+        </dt>
+        <dd>Boxplot of Beta-diversity Distances</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plotPD.html">plotPD()</a></code> 
+        </dt>
+        <dd>Plot Faith's PD</dd>
+      </dl><dl><dt>
+          
+          <code><a href="zeroOTU.html">zeroOTU()</a></code> 
+        </dt>
+        <dd>Sets ASV abundance values below x to zero</dd>
+      </dl></div><div class="section level2">
+      <h2 id="genomics">Genomics<a class="anchor" aria-label="anchor" href="#genomics"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="fastq_filter_summary_amplicon.html">fastq_filter_summary_amplicon()</a></code> 
         </dt>
@@ -72,104 +149,14 @@
         <dd>Summarize a fastq_info.py file</dd>
       </dl><dl><dt>
           
-          <code><a href="format_dt.html">format_dt()</a></code> 
+          <code><a href="run_fts.html">run_fts()</a></code> 
         </dt>
-        <dd>Format DT Datatable</dd>
-      </dl><dl><dt>
-          
-          <code><a href="getAlphaDiversity.html">getAlphaDiversity()</a></code> 
-        </dt>
-        <dd>Alpha-Diversity Measures (deprecated)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="getPhyloDiversity.html">getPhyloDiversity()</a></code> 
-        </dt>
-        <dd>Phylogenetic Diversity Measures (deprecated)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="getSig.html">getSig()</a></code> 
-        </dt>
-        <dd>getSig</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_alpha_diversity.html">get_alpha_diversity()</a></code> 
-        </dt>
-        <dd>Alpha-Diversity Measures</dd>
+        <dd>run_fts</dd>
       </dl><dl><dt>
           
           <code><a href="get_fts_intervals.html">get_fts_intervals()</a></code> 
         </dt>
         <dd>Get intervals for a run_fts() dataframe</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_phylo_diversity.html">get_phylo_diversity()</a></code> 
-        </dt>
-        <dd>Phylogenetic Diversity Measures</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_phylo_palette.html">get_phylo_palette()</a></code> 
-        </dt>
-        <dd>getPhyloPalette</dd>
-      </dl><dl><dt>
-          
-          <code><a href="gt_theme.html">gt_theme()</a></code> 
-        </dt>
-        <dd>Web theme for GT</dd>
-      </dl><dl><dt>
-          
-          <code><a href="jak_theme.html">jak_theme()</a></code> 
-        </dt>
-        <dd>JAK ggplot theme</dd>
-      </dl><dl><dt>
-          
-          <code><a href="jak_theme_black.html">jak_theme_black()</a></code> 
-        </dt>
-        <dd>JAK ggplot theme</dd>
-      </dl><dl><dt>
-          
-          <code><a href="orthofinder_complete_clusters.html">orthofinder_complete_clusters()</a></code> 
-        </dt>
-        <dd>Summarize single copy and orthogroups found in all</dd>
-      </dl><dl><dt>
-          
-          <code><a href="orthofinder_summary.html">orthofinder_summary()</a></code> 
-        </dt>
-        <dd>Summarize an orthofinder TSV file</dd>
-      </dl><dl><dt>
-          
-          <code><a href="pairwiseAdonis.html">pairwiseAdonis()</a></code> 
-        </dt>
-        <dd>Calculate Total and Pairwise Adonis Values</dd>
-      </dl><dl><dt>
-          
-          <code><a href="palette_jak.html">palette_jak()</a></code> 
-        </dt>
-        <dd>A Colorblind-friendly Palette Function</dd>
-      </dl><dl><dt>
-          
-          <code><a href="permanova.html">permanova()</a></code> 
-        </dt>
-        <dd>Permanova (adonis) and visualization</dd>
-      </dl><dl><dt>
-          
-          <code><a href="phylo_other.html">phylo_other()</a></code> 
-        </dt>
-        <dd>Combine low-abundant taxa into a single category</dd>
-      </dl><dl><dt>
-          
-          <code><a href="plotDistances.html">plotDistances()</a></code> 
-        </dt>
-        <dd>plotDistances() (deprecated)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="plotPD.html">plotPD()</a></code> 
-        </dt>
-        <dd>Plot Faith's PD</dd>
-      </dl><dl><dt>
-          
-          <code><a href="plot_distances.html">plot_distances()</a></code> 
-        </dt>
-        <dd>Boxplot of Beta-diversity Distances</dd>
       </dl><dl><dt>
           
           <code><a href="plot_fts_intervals.html">plot_fts_intervals()</a></code> 
@@ -182,19 +169,9 @@
         <dd>Plot points for a run_fts() dataframe</dd>
       </dl><dl><dt>
           
-          <code><a href="run_fts.html">run_fts()</a></code> 
+          <code><a href="getSig.html">getSig()</a></code> 
         </dt>
-        <dd>run_fts</dd>
-      </dl><dl><dt>
-          
-          <code><a href="seqtab_stats.html">seqtab_stats()</a></code> 
-        </dt>
-        <dd>Extract DADA2 seqtab statistics</dd>
-      </dl><dl><dt>
-          
-          <code><a href="show_color_palette.html">show_color_palette()</a></code> 
-        </dt>
-        <dd>showColorPalette</dd>
+        <dd>getSig</dd>
       </dl><dl><dt>
           
           <code><a href="sigCombine.html">sigCombine()</a></code> 
@@ -202,21 +179,53 @@
         <dd>Combine DESeq sigtab contrasts</dd>
       </dl><dl><dt>
           
-          <code><a href="summarySE.html">summarySE()</a></code> 
+          <code><a href="orthofinder_complete_clusters.html">orthofinder_complete_clusters()</a></code> 
         </dt>
-        <dd>Calculate Error Bars on a Dataframe</dd>
+        <dd>Summarize single copy and orthogroups found in all</dd>
       </dl><dl><dt>
           
-          <code><a href="tol.html">tol</a></code> 
+          <code><a href="orthofinder_summary.html">orthofinder_summary()</a></code> 
         </dt>
-        <dd>Paul Tol Color Schemes</dd>
+        <dd>Summarize an orthofinder TSV file</dd>
       </dl><dl><dt>
           
-          <code><a href="zeroOTU.html">zeroOTU()</a></code> 
+          <code><a href="drep_extract.html">drep_extract()</a></code> 
         </dt>
-        <dd>Sets ASV abundance values below x to zero</dd>
+        <dd>Extract dRep genome results</dd>
+      </dl><dl><dt>
+          
+          <code><a href="seqtab_stats.html">seqtab_stats()</a></code> 
+        </dt>
+        <dd>Extract DADA2 seqtab statistics</dd>
+      </dl></div><div class="section level2">
+      <h2 id="misc">Misc<a class="anchor" aria-label="anchor" href="#misc"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="jak_theme.html">jak_theme()</a></code> 
+        </dt>
+        <dd>JAK ggplot theme</dd>
+      </dl><dl><dt>
+          
+          <code><a href="format_dt.html">format_dt()</a></code> 
+        </dt>
+        <dd>Format DT Datatable</dd>
+      </dl><dl><dt>
+          
+          <code><a href="gt_theme.html">gt_theme()</a></code> 
+        </dt>
+        <dd>Web theme for GT</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
