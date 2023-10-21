@@ -2,6 +2,8 @@
 #'
 #' @export
 #' @param pal A color palette
+#' @param labels Boolean for whether to show the rgb value as a label
+#' @param label_angle The rotational angle for the label
 
 show_color_palette = function(pal,
                               labels = FALSE,
