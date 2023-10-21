@@ -14,6 +14,7 @@ reference:
   - show_all_color_palettes
   - expand_named_palette
   - get_phylo_palette
+  - jak_palettes
 
 - title: Microbial Communities
   contents:
@@ -55,4 +56,3 @@ reference:
   - jak_theme_black
   - summarySE
   - plotDistances
-  - jak_palettes
