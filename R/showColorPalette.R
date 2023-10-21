@@ -35,3 +35,28 @@ show_color_palette = function(pal,
   p
 }
 
+#' Show all color palettes in the jak_palettes object
+#'
+#' @export
+
+show_all_color_palettes = function() {
+  input2 <- lapply(jak_palettes, as.data.frame, stringsAsFactors = FALSE)
+  df <- bind_rows(input2, .id = "Palette") |>
+    dplyr::select(Palette, RGB = `X[[i]]`)
+
+  df = df |>
+    group_by(Palette) |>
+    mutate(x = seq(n()))
+
+  df |>
+    ggplot(aes(x = x, y = Palette, fill = RGB)) +
+      theme_minimal() +
+      geom_tile() +
+      scale_fill_identity() +
+      scale_y_discrete(limits = rev)
+
+}
+
+
+
+

@@ -1,7 +1,7 @@
 Package: jakR
 Type: Package
 Title: jakR Miscellaneous Scripts
-Version: 0.11.11
+Version: 0.11.12
 Author: Jeff Kimbrel
 Date: 2018-06-12
 Maintainer: Jeff Kimbrel <jakpot@gmail.com>
@@ -15,3 +15,5 @@ Imports:
     ggplot2,
     tidyverse
 URL: https://jeffkimbrel.github.io/jakR/
+Depends: 
+    R (>= 2.10)

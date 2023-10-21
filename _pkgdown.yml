@@ -1,5 +1,58 @@
 url: https://jeffkimbrel.github.io/jakR/
 template:
   bootstrap: 5
-  bootswatch: sandstone
+  bslib:
+    bg: "#202123"
+    fg: "#B8BCC2"
+    primary: "#037bcf"
 
+reference:
+- title: Color Palettes
+  contents:
+  - palette_jak
+  - show_color_palette
+  - show_all_color_palettes
+  - expand_named_palette
+  - get_phylo_palette
+
+- title: Microbial Communities
+  contents:
+  - get_alpha_diversity
+  - get_phylo_diversity
+  - permanova
+  - pairwiseAdonis
+  - phylo_other
+  - plot_distances
+  - plotPD
+  - zeroOTU
+
+- title: Genomics
+  contents:
+  - fastq_filter_summary_amplicon
+  - fastq_info_summary
+  - run_fts
+  - get_fts_intervals
+  - plot_fts_intervals
+  - plot_fts_points
+  - getSig
+  - sigCombine
+  - orthofinder_complete_clusters
+  - orthofinder_summary
+  - drep_extract
+  - seqtab_stats
+
+- title: Misc
+  contents:
+  - jak_theme
+  - format_dt
+  - gt_theme
+
+- title: internal
+  contents:
+  - all_are_valid_colors
+  - getAlphaDiversity
+  - getPhyloDiversity
+  - jak_theme_black
+  - summarySE
+  - plotDistances
+  - jak_palettes
