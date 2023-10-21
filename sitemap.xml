@@ -13,10 +13,7 @@
     <loc>https://jeffkimbrel.github.io/jakR/index.html</loc>
   </url>
   <url>
-    <loc>https://jeffkimbrel.github.io/jakR/reference/cbPalette.html</loc>
-  </url>
-  <url>
-    <loc>https://jeffkimbrel.github.io/jakR/reference/colorbook.html</loc>
+    <loc>https://jeffkimbrel.github.io/jakR/reference/all_are_valid_colors.html</loc>
   </url>
   <url>
     <loc>https://jeffkimbrel.github.io/jakR/reference/drep_extract.html</loc>
@@ -106,7 +103,7 @@
     <loc>https://jeffkimbrel.github.io/jakR/reference/seqtab_stats.html</loc>
   </url>
   <url>
-    <loc>https://jeffkimbrel.github.io/jakR/reference/showColorPalette.html</loc>
+    <loc>https://jeffkimbrel.github.io/jakR/reference/show_color_palette.html</loc>
   </url>
   <url>
     <loc>https://jeffkimbrel.github.io/jakR/reference/sigCombine.html</loc>
