@@ -114,7 +114,7 @@ fastq_filter_summary_amplicon = function(file, text_size = 8) {
     geom_col() +
     facet_grid(~TYPE, scales = "free_x") +
     coord_flip() +
-    scale_fill_manual(values = palette_jak$bay(2)) +
+    scale_fill_manual(values = palette_jak(n = 2, p = "bay")) +
     labs(subtitle = file, title = "Contamination Filter", x = "Sample", y = "Reads") +
     geom_text(aes(label = ifelse(STEP == "OUT", value, NA)), size = 2, color = "gray70", hjust = 0.3)
 
