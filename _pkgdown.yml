@@ -30,6 +30,7 @@ reference:
 - title: Genomics
   contents:
   - fastq_filter_summary_amplicon
+  - fastq_filter_summary_meta
   - fastq_info_summary
   - run_fts
   - get_fts_intervals
