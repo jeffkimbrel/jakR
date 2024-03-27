@@ -94,8 +94,6 @@ fastq_info_summary <- function(file) {
 #' @param text_size Text size for the filtered plot
 
 
-
-
 fastq_filter_summary_amplicon <- function(file, text_size = 8) {
   df <- readr::read_delim(file, delim = "\t", comment = "#") |>
     dplyr::select(SAMPLE, ORDER_VERIFIED, CF_READS_OUT, CF_READS_REMOVED, CF_BP_OUT, CF_BP_REMOVED) |>
