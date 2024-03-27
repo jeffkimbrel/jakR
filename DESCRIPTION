@@ -1,7 +1,7 @@
 Package: jakR
 Type: Package
 Title: jakR Miscellaneous Scripts
-Version: 0.11.14
+Version: 0.11.15
 Author: Jeff Kimbrel
 Date: 2018-06-12
 Maintainer: Jeff Kimbrel <jakpot@gmail.com>
@@ -13,7 +13,12 @@ RoxygenNote: 7.2.3
 Imports:
     dplyr,
     ggplot2,
-    tidyverse
+    jsonlite,
+    pastecs,
+    purrr,
+    readr,
+    tibble,
+    tidyr
 URL: https://jeffkimbrel.github.io/jakR/
 Depends: 
     R (>= 2.10)

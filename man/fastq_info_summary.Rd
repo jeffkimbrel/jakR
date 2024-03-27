@@ -2,15 +2,13 @@
 % Please edit documentation in R/fastq_summary.R
 \name{fastq_info_summary}
 \alias{fastq_info_summary}
-\title{Summarize a fastq_info.py file}
+\title{Summarize a fastq_info file}
 \usage{
 fastq_info_summary(file)
 }
 \arguments{
 \item{file}{Output from fastq_info.py}
-
-\item{plot}{Return a ggplot object}
 }
 \description{
-Summarize a fastq_info.py file
+Summarize a fastq_info file
 }

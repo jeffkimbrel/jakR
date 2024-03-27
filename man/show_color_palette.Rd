@@ -8,6 +8,10 @@ show_color_palette(pal, labels = FALSE, label_angle = 0)
 }
 \arguments{
 \item{pal}{A color palette}
+
+\item{labels}{Boolean for whether to show the rgb value as a label}
+
+\item{label_angle}{The rotational angle for the label}
 }
 \description{
 showColorPalette
