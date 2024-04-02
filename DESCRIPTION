@@ -1,7 +1,7 @@
 Package: jakR
 Type: Package
 Title: jakR Miscellaneous Scripts
-Version: 0.11.16
+Version: 0.11.17
 Author: Jeff Kimbrel
 Date: 2018-06-12
 Maintainer: Jeff Kimbrel <jakpot@gmail.com>
@@ -18,7 +18,8 @@ Imports:
     purrr,
     readr,
     tibble,
-    tidyr
+    tidyr,
+    vegan
 URL: https://jeffkimbrel.github.io/jakR/
 Depends: 
     R (>= 2.10)

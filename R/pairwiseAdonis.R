@@ -10,7 +10,6 @@
 
 pairwiseAdonis <- function(x, factors, sim.method = 'bray', p.adjust.m = 'BH', perm = 999){
 
-  library("vegan")
   factors = data.frame(factors)
   colnames(factors) = "GROUP"
   factors$SAMPLE = rownames(factors)
@@ -38,7 +37,7 @@ pairwiseAdonis <- function(x, factors, sim.method = 'bray', p.adjust.m = 'BH', p
     x.s = x[factors.s$SAMPLE,]
 
     # run Adonis and collect results
-    adonis.results = adonis(x.s ~ factors.s$GROUP, method = sim.method, perm = perm)
+    adonis.results = adonis2(x.s ~ factors.s$GROUP, method = sim.method, perm = perm)
     pairs = c(pairs, paste0(group1, " vs ", group2))
     groupSize = c(groupSize, paste0(table(factors.s$GROUP)[as.character(group1)], "-", table(factors.s$GROUP)[as.character(group2)]))
     F.Model = c(F.Model, adonis.results$aov.tab[1, 4])
@@ -50,7 +49,7 @@ pairwiseAdonis <- function(x, factors, sim.method = 'bray', p.adjust.m = 'BH', p
   p.adjusted = p.adjust(p.value, method = p.adjust.m)
 
   # run all
-  adonis.results = adonis(x ~ factors$GROUP, method = sim.method, perm = perm)
+  adonis.results = adonis2(x ~ factors$GROUP, method = sim.method, perm = perm)
   pairs = c(pairs, "ALL")
   F.Model = c(F.Model, adonis.results$aov.tab[1, 4])
   R2 = c(R2, adonis.results$aov.tab[1,5])
