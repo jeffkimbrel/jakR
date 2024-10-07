@@ -34,6 +34,8 @@ palette_jak = function(p = "bay",
 
 #' Check if a string contains valid color strings
 #'
+#' It appears I copied this function from https://stackoverflow.com/questions/13289009/check-if-character-string-is-a-valid-color-representation
+#'
 #' @param x A vector of colors in rgb or text string
 #'
 #' @export
