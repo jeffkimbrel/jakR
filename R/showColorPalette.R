@@ -11,7 +11,6 @@ show_color_palette = function(pal,
 
   rows = ceiling(sqrt(length(pal)))
 
-  require("tidyverse")
   df = data.frame(pal)
   df$TAXA = as.integer(rownames(df))
   #df$rank <- seq.int(nrow(df))
@@ -19,19 +18,19 @@ show_color_palette = function(pal,
   colnames(df) = c("COLOR", "TAXA")
 
   df = df |>
-    mutate(y = ntile(n = rows)) |>
-    group_by(y) |>
-    mutate(x = seq(n()))
+    dplyr::mutate(y = dplyr::ntile(n = rows)) |>
+    dplyr::group_by(y) |>
+    dplyr::mutate(x = seq(n()))
 
   p = df |>
-    ggplot(aes(x = x, y = y, fill = COLOR)) +
-    theme_void() +
-    geom_tile() +
-    scale_fill_identity() +
-    scale_y_reverse()
+    ggplot2::ggplot(ggplot2::aes(x = x, y = y, fill = COLOR)) +
+    ggplot2::theme_void() +
+    ggplot2::geom_tile() +
+    ggplot2::scale_fill_identity() +
+    ggplot2::scale_y_reverse()
 
   if (isTRUE(labels)) {
-    p = p + geom_text(aes(label = COLOR), angle = label_angle)
+    p = p + ggplot2::geom_text(ggplot2::aes(label = COLOR), angle = label_angle)
   }
 
   p
