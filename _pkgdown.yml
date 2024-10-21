@@ -42,6 +42,7 @@ reference:
   - orthofinder_summary
   - drep_extract
   - seqtab_stats
+  - illumina_codes
 
 - title: Misc
   contents:
